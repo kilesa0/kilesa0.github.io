@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>用python进行dnf论坛签到 | YuGao</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="在centos服务器上从EPEL仓库安装python安装最新版本的EPEL: 1$ sudo yum install epel-release 用yum安装python 3.6: 1$ sudo yum install python36 注意：上面的安装方法并未安装pip和setuptools，如果你要安装这两个库可以使用下面的命令： 12$ curl -O https:&#x2F;&#x2F;bootstrap.p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用python进行dnf论坛签到">
+<meta property="og:url" content="https://gitee.com/qq925328032/qq925328032/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/index.html">
+<meta property="og:site_name" content="YuGao">
+<meta property="og:description" content="在centos服务器上从EPEL仓库安装python安装最新版本的EPEL: 1$ sudo yum install epel-release 用yum安装python 3.6: 1$ sudo yum install python36 注意：上面的安装方法并未安装pip和setuptools，如果你要安装这两个库可以使用下面的命令： 12$ curl -O https:&#x2F;&#x2F;bootstrap.p">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-25T03:11:28.000Z">
+<meta property="article:modified_time" content="2020-07-25T04:09:44.984Z">
+<meta property="article:author" content="鱼糕先生">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">YuGao</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">文章</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gitee.com/qq925328032/qq925328032"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-用python进行dnf论坛签到" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/" class="article-date">
+  <time class="dt-published" datetime="2020-07-25T03:11:28.000Z" itemprop="datePublished">2020-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      用python进行dnf论坛签到
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="在centos服务器上从EPEL仓库安装python"><a href="#在centos服务器上从EPEL仓库安装python" class="headerlink" title="在centos服务器上从EPEL仓库安装python"></a>在centos服务器上从EPEL仓库安装python</h2><p>安装最新版本的EPEL:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install epel-release</span><br></pre></td></tr></table></figure>
+<p>用yum安装python 3.6:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install python36</span><br></pre></td></tr></table></figure>
+<p>注意：上面的安装方法并未安装pip和setuptools，如果你要安装这两个库可以使用下面的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl -O https://bootstrap.pypa.io/get-pip.py</span><br><span class="line">$ sudo /usr/bin/python3.6 get-pip.py</span><br></pre></td></tr></table></figure>
+<p>安装requests库和lxml库:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install requests</span><br><span class="line">pip3 install lxml</span><br></pre></td></tr></table></figure>
+<h2 id="用crontab执行定时脚本"><a href="#用crontab执行定时脚本" class="headerlink" title="用crontab执行定时脚本"></a>用crontab执行定时脚本</h2><p>1.新增脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /root/qiandao.sh</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"--------"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$ttime</span></span><br><span class="line">python3 /root/qiandao.py</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$ttime</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"--------"</span></span><br></pre></td></tr></table></figure>
+<p>2.调度任务： crontab -e 然后添加相应的任务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 0 * * * /root/qiandao.sh &gt;&gt; /root/qd.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="签到源代码"><a href="#签到源代码" class="headerlink" title="签到源代码"></a>签到源代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from lxml import etree</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">cookies = &#123;<span class="string">"用户cookies"</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#导入cookies</span></span><br><span class="line">html = requests.get(<span class="string">'https://dnf.gamebbs.qq.com/plugin.php?id=k_misign:sign'</span>,</span><br><span class="line">                     cookies=cookies)</span><br><span class="line"><span class="comment">#拿到formhash</span></span><br><span class="line">formhash = etree.HTML(html.text).xpath(<span class="string">'*//a[@class="logout"]/@href'</span>)[0].split(<span class="string">'formhash='</span>)[1]</span><br><span class="line"></span><br><span class="line">qiandaourl = <span class="string">"https://dnf.gamebbs.qq.com/plugin.php?"</span> \</span><br><span class="line">               <span class="string">"id=k_misign:sign&amp;operation=qiandao&amp;formhash=&#123;0&#125;&amp;format=empty"</span>.format(formhash)</span><br><span class="line"></span><br><span class="line">fanhui = requests.get(qiandaourl,cookies=cookies).text</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(formhash)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">'&lt;p&gt;(.*?)&lt;script type="text/javascript"'</span>,fanhui)[0])</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gitee.com/qq925328032/qq925328032/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/" data-id="ckd14y2he0002fswkf9ppa9jx" data-title="用python进行dnf论坛签到" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/18/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Markdown的基本使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/">用python进行dnf论坛签到</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/18/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Markdown的基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/18/npm%E7%9A%84%E5%AE%89%E8%A3%85/">npm的安装</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Hexo的基本使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 鱼糕先生<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">文章</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
