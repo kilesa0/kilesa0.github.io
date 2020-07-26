@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Crontab和Screen的基本使用 | YuGao</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Crontab1.Crontab 选项1234crontab –e   修改 crontab 文件. 如果文件不存在会自动创建。 crontab –l   显示 crontab 文件。 crontab -r   删除 crontab 文件。crontab -ir  删除 crontab 文件前提醒用户。 ps:一般情况下回写一个sh脚本来执行定时任务 2.Crontab 使用定时   项目 含义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Crontab和Screen的基本使用">
+<meta property="og:url" content="https://gitee.com/qq925328032/qq925328032/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="YuGao">
+<meta property="og:description" content="Crontab1.Crontab 选项1234crontab –e   修改 crontab 文件. 如果文件不存在会自动创建。 crontab –l   显示 crontab 文件。 crontab -r   删除 crontab 文件。crontab -ir  删除 crontab 文件前提醒用户。 ps:一般情况下回写一个sh脚本来执行定时任务 2.Crontab 使用定时   项目 含义">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-26T14:01:39.000Z">
+<meta property="article:modified_time" content="2020-07-26T14:23:05.765Z">
+<meta property="article:author" content="鱼糕先生">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">YuGao</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">文章</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gitee.com/qq925328032/qq925328032"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Crontab和Screen的基本使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2020-07-26T14:01:39.000Z" itemprop="datePublished">2020-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Crontab和Screen的基本使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Crontab"><a href="#Crontab" class="headerlink" title="Crontab"></a>Crontab</h1><h2 id="1-Crontab-选项"><a href="#1-Crontab-选项" class="headerlink" title="1.Crontab 选项"></a>1.Crontab 选项</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">crontab –e   修改 crontab 文件. 如果文件不存在会自动创建。 </span><br><span class="line">crontab –l   显示 crontab 文件。 </span><br><span class="line">crontab -r   删除 crontab 文件。</span><br><span class="line">crontab -ir  删除 crontab 文件前提醒用户。</span><br></pre></td></tr></table></figure>
+<p>ps:一般情况下回写一个sh脚本来执行定时任务</p>
+<h2 id="2-Crontab-使用定时"><a href="#2-Crontab-使用定时" class="headerlink" title="2.Crontab 使用定时"></a>2.Crontab 使用定时</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">含义</th>
+<th align="center">范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第一个*</td>
+<td align="center">一个小时中的第几分钟</td>
+<td align="center">0-59</td>
+</tr>
+<tr>
+<td align="center">第二个*</td>
+<td align="center">一天中的第几个小时</td>
+<td align="center">0-23</td>
+</tr>
+<tr>
+<td align="center">第三个*</td>
+<td align="center">一月中的第几天</td>
+<td align="center">1-31</td>
+</tr>
+<tr>
+<td align="center">第四个*</td>
+<td align="center">一年中的第几月</td>
+<td align="center">1-12</td>
+</tr>
+<tr>
+<td align="center">第五个*</td>
+<td align="center">一周中的第几个星期</td>
+<td align="center">0和7均表示星期天</td>
+</tr>
+</tbody></table>
+<h2 id="3-Crontab-使用示例"><a href="#3-Crontab-使用示例" class="headerlink" title="3.Crontab 使用示例"></a>3.Crontab 使用示例</h2><p>每分钟执行一次root目录下的qd.sh脚本，并将打印内容输出到qd.txt:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/1 * * * * /root/qd.sh &gt;&gt; qd.txt</span><br></pre></td></tr></table></figure>
+<p>每天0:0执行一次root目录下的qd.sh脚本，并将打印内容输出到qd.txt:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 * * * /root/qd.sh &gt;&gt; qd.txt</span><br></pre></td></tr></table></figure>
+<h1 id="Screen与Nohup"><a href="#Screen与Nohup" class="headerlink" title="Screen与Nohup"></a>Screen与Nohup</h1><h2 id="1-Screen-选项"><a href="#1-Screen-选项" class="headerlink" title="1.Screen 选项"></a>1.Screen 选项</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">screen -ls               查看现有的画布</span><br><span class="line">screen -r name           进入名为name的画布</span><br><span class="line">screen -S name           创建名为name的画布</span><br><span class="line">screen -S -X name quit   退出并删除名为name的画布</span><br></pre></td></tr></table></figure>
+<h2 id="2-nohup-选项"><a href="#2-nohup-选项" class="headerlink" title="2.nohup 选项"></a>2.nohup 选项</h2><p>执行qiandao.sh脚本并将内容打印到nohup.out:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup qiandao.sh</span><br></pre></td></tr></table></figure>
+<p>执行qiandao.sh脚本并将内容打印到name.out:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup qiandao.sh &gt;&gt; name.out</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gitee.com/qq925328032/qq925328032/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckd36buzn0000rswk58yy09yd" data-title="Crontab和Screen的基本使用" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">用python进行dnf论坛签到</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Crontab和Screen的基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/">用python进行dnf论坛签到</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/18/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Markdown的基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/18/npm%E7%9A%84%E5%AE%89%E8%A3%85/">npm的安装</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/17/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Hexo的基本使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 鱼糕先生<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">文章</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

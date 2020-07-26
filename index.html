@@ -66,6 +66,88 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Crontab和Screen的基本使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2020-07-26T14:01:39.000Z" itemprop="datePublished">2020-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Crontab和Screen的基本使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Crontab"><a href="#Crontab" class="headerlink" title="Crontab"></a>Crontab</h1><h2 id="1-Crontab-选项"><a href="#1-Crontab-选项" class="headerlink" title="1.Crontab 选项"></a>1.Crontab 选项</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">crontab –e   修改 crontab 文件. 如果文件不存在会自动创建。 </span><br><span class="line">crontab –l   显示 crontab 文件。 </span><br><span class="line">crontab -r   删除 crontab 文件。</span><br><span class="line">crontab -ir  删除 crontab 文件前提醒用户。</span><br></pre></td></tr></table></figure>
+<p>ps:一般情况下回写一个sh脚本来执行定时任务</p>
+<h2 id="2-Crontab-使用定时"><a href="#2-Crontab-使用定时" class="headerlink" title="2.Crontab 使用定时"></a>2.Crontab 使用定时</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">含义</th>
+<th align="center">范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第一个*</td>
+<td align="center">一个小时中的第几分钟</td>
+<td align="center">0-59</td>
+</tr>
+<tr>
+<td align="center">第二个*</td>
+<td align="center">一天中的第几个小时</td>
+<td align="center">0-23</td>
+</tr>
+<tr>
+<td align="center">第三个*</td>
+<td align="center">一月中的第几天</td>
+<td align="center">1-31</td>
+</tr>
+<tr>
+<td align="center">第四个*</td>
+<td align="center">一年中的第几月</td>
+<td align="center">1-12</td>
+</tr>
+<tr>
+<td align="center">第五个*</td>
+<td align="center">一周中的第几个星期</td>
+<td align="center">0和7均表示星期天</td>
+</tr>
+</tbody></table>
+<h2 id="3-Crontab-使用示例"><a href="#3-Crontab-使用示例" class="headerlink" title="3.Crontab 使用示例"></a>3.Crontab 使用示例</h2><p>每分钟执行一次root目录下的qd.sh脚本，并将打印内容输出到qd.txt:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/1 * * * * /root/qd.sh &gt;&gt; qd.txt</span><br></pre></td></tr></table></figure>
+<p>每天0:0执行一次root目录下的qd.sh脚本，并将打印内容输出到qd.txt:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 * * * /root/qd.sh &gt;&gt; qd.txt</span><br></pre></td></tr></table></figure>
+<h1 id="Screen与Nohup"><a href="#Screen与Nohup" class="headerlink" title="Screen与Nohup"></a>Screen与Nohup</h1><h2 id="1-Screen-选项"><a href="#1-Screen-选项" class="headerlink" title="1.Screen 选项"></a>1.Screen 选项</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">screen -ls               查看现有的画布</span><br><span class="line">screen -r name           进入名为name的画布</span><br><span class="line">screen -S name           创建名为name的画布</span><br><span class="line">screen -S -X name quit   退出并删除名为name的画布</span><br></pre></td></tr></table></figure>
+<h2 id="2-nohup-选项"><a href="#2-nohup-选项" class="headerlink" title="2.nohup 选项"></a>2.nohup 选项</h2><p>执行qiandao.sh脚本并将内容打印到nohup.out:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup qiandao.sh</span><br></pre></td></tr></table></figure>
+<p>执行qiandao.sh脚本并将内容打印到name.out:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup qiandao.sh &gt;&gt; name.out</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gitee.com/qq925328032/qq925328032/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckd36buzn0000rswk58yy09yd" data-title="Crontab和Screen的基本使用" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-用python进行dnf论坛签到" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/" class="article-date">
@@ -105,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gitee.com/qq925328032/qq925328032/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/" data-id="ckd14y2he0002fswkf9ppa9jx" data-title="用python进行dnf论坛签到" class="article-share-link">分享</a>
+      <a data-url="https://gitee.com/qq925328032/qq925328032/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/" data-id="ckd36buzv0003rswkf58g0yi0" data-title="用python进行dnf论坛签到" class="article-share-link">分享</a>
       
       
       
@@ -140,6 +222,7 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h3 id="Markdown标题"><a href="#Markdown标题" class="headerlink" title="Markdown标题"></a>Markdown标题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这是一个一级标题</span></span><br><span class="line"><span class="comment">## 这是一个二级标题</span></span><br><span class="line">...</span><br><span class="line"><span class="comment">###### 这是一个六级标题</span></span><br></pre></td></tr></table></figure>
+<p>ps:hexo中一定要加上空格</p>
 <h4 id="另一种写法"><a href="#另一种写法" class="headerlink" title="另一种写法:"></a>另一种写法:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">这是一个一级标题     注：在正文下写一个=号是一级标题</span><br><span class="line">=</span><br><span class="line">这是一个二级标题     注：在正文下写一个-号是二级标题</span><br><span class="line">-</span><br><span class="line">这个方法只能有二级标题</span><br></pre></td></tr></table></figure>
 
 <h3 id="Markdown正文"><a href="#Markdown正文" class="headerlink" title="Markdown正文"></a>Markdown正文</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一段正文 正文不需要任何修饰，直接输入就可以</span><br></pre></td></tr></table></figure>
@@ -194,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gitee.com/qq925328032/qq925328032/2020/07/18/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckd14y2he0000fswkeulj1ki0" data-title="Markdown的基本使用" class="article-share-link">分享</a>
+      <a data-url="https://gitee.com/qq925328032/qq925328032/2020/07/18/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckd36buzu0002rswk1qi25685" data-title="Markdown的基本使用" class="article-share-link">分享</a>
       
       
       
@@ -252,7 +335,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gitee.com/qq925328032/qq925328032/2020/07/18/npm%E7%9A%84%E5%AE%89%E8%A3%85/" data-id="ckd14y2he0003fswkhhu88ts1" data-title="npm的安装" class="article-share-link">分享</a>
+      <a data-url="https://gitee.com/qq925328032/qq925328032/2020/07/18/npm%E7%9A%84%E5%AE%89%E8%A3%85/" data-id="ckd36buzw0004rswk9uk98jll" data-title="npm的安装" class="article-share-link">分享</a>
       
       
       
@@ -301,7 +384,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gitee.com/qq925328032/qq925328032/2020/07/17/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckd14y2he0001fswkfgtrhb9y" data-title="Hexo的基本使用" class="article-share-link">分享</a>
+      <a data-url="https://gitee.com/qq925328032/qq925328032/2020/07/17/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckd36buzs0001rswk39z4chjm" data-title="Hexo的基本使用" class="article-share-link">分享</a>
       
       
       
@@ -342,6 +425,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Crontab和Screen的基本使用</a>
+          </li>
         
           <li>
             <a href="/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/">用python进行dnf论坛签到</a>
