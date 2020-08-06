@@ -66,6 +66,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-goproxy和go-modules的使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/06/goproxy%E5%92%8Cgo-modules%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2020-08-06T06:25:09.000Z" itemprop="datePublished">2020-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/08/06/goproxy%E5%92%8Cgo-modules%E7%9A%84%E4%BD%BF%E7%94%A8/">goproxy和go modules的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="开启go-modules"><a href="#开启go-modules" class="headerlink" title="开启go modules"></a>开启go modules</h3><p>Go 1.13 及以上（推荐）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#开启go mod </span></span><br><span class="line">go env -w GO111MODULE=on</span><br><span class="line"><span class="comment">#设置goproxy</span></span><br><span class="line">go env -w GOPROXY=https://goproxy.cn,direct</span><br></pre></td></tr></table></figure>
+
+<h3 id="go-mod初始化"><a href="#go-mod初始化" class="headerlink" title="go mod初始化"></a>go mod初始化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go mod init 项目名字</span><br></pre></td></tr></table></figure>
+
+<h3 id="Goproxy自动更新依赖"><a href="#Goproxy自动更新依赖" class="headerlink" title="Goproxy自动更新依赖"></a>Goproxy自动更新依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go mod tidy</span><br></pre></td></tr></table></figure>
+
+<h3 id="goland开启go-mod支持"><a href="#goland开启go-mod支持" class="headerlink" title="goland开启go mod支持"></a>goland开启go mod支持</h3><p><img src="http://qemsmy4o4.bkt.clouddn.com/gomod.png" alt="go mod" title="go mod"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://gitee.com/kilesa/kilesa/2020/08/06/goproxy%E5%92%8Cgo-modules%E7%9A%84%E4%BD%BF%E7%94%A8/" data-id="ckdihd865000438wk70h7gzef" data-title="goproxy和go modules的使用" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-python发送邮件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2020/08/01/python%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/" class="article-date">
@@ -93,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gitee.com/kilesa/kilesa/2020/08/01/python%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/" data-id="ckdbnej6v0001mcwk5c87cyo0" data-title="python发送邮件" class="article-share-link">分享</a>
+      <a data-url="https://gitee.com/kilesa/kilesa/2020/08/01/python%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/" data-id="ckdihd866000538wkd3jn8j1p" data-title="python发送邮件" class="article-share-link">分享</a>
       
       
       
@@ -133,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/28/%E7%94%A8python%E5%AE%9E%E6%97%B6%E8%8E%B7%E5%8F%96%E5%BC%B9%E5%B9%95%E5%92%8C%E5%8F%91%E9%80%81%E5%BC%B9%E5%B9%95/" data-id="ckdbnej700005mcwkg3hc1sn3" data-title="用python实时获取弹幕和发送弹幕" class="article-share-link">分享</a>
+      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/28/%E7%94%A8python%E5%AE%9E%E6%97%B6%E8%8E%B7%E5%8F%96%E5%BC%B9%E5%B9%95%E5%92%8C%E5%8F%91%E9%80%81%E5%BC%B9%E5%B9%95/" data-id="ckdihd86n000738wkf5d687os" data-title="用python实时获取弹幕和发送弹幕" class="article-share-link">分享</a>
       
       
       
@@ -215,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckdbnej6x0002mcwkc8rdhj3c" data-title="Crontab和Screen的基本使用" class="article-share-link">分享</a>
+      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckdihd861000138wk05da860t" data-title="Crontab和Screen的基本使用" class="article-share-link">分享</a>
       
       
       
@@ -266,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/" data-id="ckdbnej710006mcwk5w856qb0" data-title="用python进行dnf论坛签到" class="article-share-link">分享</a>
+      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/" data-id="ckdihd866000638wk0yqb0d49" data-title="用python进行dnf论坛签到" class="article-share-link">分享</a>
       
       
       
@@ -356,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/18/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckdbnej6y0003mcwk6ye5g8nz" data-title="Markdown的基本使用" class="article-share-link">分享</a>
+      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/18/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckdihd85w000038wk6dayhrkq" data-title="Markdown的基本使用" class="article-share-link">分享</a>
       
       
       
@@ -414,7 +460,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/18/npm%E7%9A%84%E5%AE%89%E8%A3%85/" data-id="ckdbnej6z0004mcwkadfe57ng" data-title="npm的安装" class="article-share-link">分享</a>
+      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/18/npm%E7%9A%84%E5%AE%89%E8%A3%85/" data-id="ckdihd864000338wk77lmbr0n" data-title="npm的安装" class="article-share-link">分享</a>
       
       
       
@@ -465,7 +511,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/17/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckdbnej6r0000mcwk8ozrfl7g" data-title="Hexo的基本使用" class="article-share-link">分享</a>
+      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/17/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ckdihd863000238wkdybxcrv6" data-title="Hexo的基本使用" class="article-share-link">分享</a>
       
       
       
@@ -508,6 +554,10 @@
       <ul>
         
           <li>
+            <a href="/2020/08/06/goproxy%E5%92%8Cgo-modules%E7%9A%84%E4%BD%BF%E7%94%A8/">goproxy和go modules的使用</a>
+          </li>
+        
+          <li>
             <a href="/2020/08/01/python%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/">python发送邮件</a>
           </li>
         
@@ -521,10 +571,6 @@
         
           <li>
             <a href="/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/">用python进行dnf论坛签到</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/18/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Markdown的基本使用</a>
           </li>
         
       </ul>
