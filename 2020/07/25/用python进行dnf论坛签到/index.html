@@ -4,18 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>用python进行dnf论坛签到 | YuGao</title>
+  <title>用python进行dnf论坛签到 | Kilesa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="在centos服务器上从EPEL仓库安装python安装最新版本的EPEL: 1sudo yum install epel-release 用yum安装python 3.6: 1sudo yum install python36 注意：上面的安装方法并未安装pip和setuptools，如果你要安装这两个库可以使用下面的命令： 12curl -O https:&#x2F;&#x2F;bootstrap.pypa.io">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用python进行dnf论坛签到">
 <meta property="og:url" content="https://gitee.com/kilesa/kilesa/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/index.html">
-<meta property="og:site_name" content="YuGao">
+<meta property="og:site_name" content="Kilesa">
 <meta property="og:description" content="在centos服务器上从EPEL仓库安装python安装最新版本的EPEL: 1sudo yum install epel-release 用yum安装python 3.6: 1sudo yum install python36 注意：上面的安装方法并未安装pip和setuptools，如果你要安装这两个库可以使用下面的命令： 12curl -O https:&#x2F;&#x2F;bootstrap.pypa.io">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-25T03:11:28.000Z">
-<meta property="article:modified_time" content="2020-07-28T13:56:32.378Z">
+<meta property="article:modified_time" content="2020-08-09T12:43:35.330Z">
 <meta property="article:author" content="鱼糕先生">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
   
   
@@ -44,7 +45,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">YuGao</a>
+        <a href="/" id="logo">Kilesa</a>
       </h1>
       
     </div>
@@ -59,11 +60,7 @@
       </nav>
       <nav id="sub-nav">
         
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gitee.com/kilesa/kilesa"></form>
-      </div>
     </div>
   </div>
 </header>
@@ -106,12 +103,6 @@
 <h2 id="签到源代码"><a href="#签到源代码" class="headerlink" title="签到源代码"></a>签到源代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from lxml import etree</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">cookies = &#123;<span class="string">"用户cookies"</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#导入cookies</span></span><br><span class="line">html = requests.get(<span class="string">'https://dnf.gamebbs.qq.com/plugin.php?id=k_misign:sign'</span>,</span><br><span class="line">                     cookies=cookies)</span><br><span class="line"><span class="comment">#拿到formhash</span></span><br><span class="line">formhash = etree.HTML(html.text).xpath(<span class="string">'*//a[@class="logout"]/@href'</span>)[0].split(<span class="string">'formhash='</span>)[1]</span><br><span class="line"></span><br><span class="line">qiandaourl = <span class="string">"https://dnf.gamebbs.qq.com/plugin.php?"</span> \</span><br><span class="line">               <span class="string">"id=k_misign:sign&amp;operation=qiandao&amp;formhash=&#123;0&#125;&amp;format=empty"</span>.format(formhash)</span><br><span class="line"></span><br><span class="line">fanhui = requests.get(qiandaourl,cookies=cookies).text</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(formhash)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(re.findall(<span class="string">'&lt;p&gt;(.*?)&lt;script type="text/javascript"'</span>,fanhui)[0])</span><br></pre></td></tr></table></figure>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://gitee.com/kilesa/kilesa/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/" data-id="ckdmypw7g0008jkwk9j5ya988" data-title="用python进行dnf论坛签到" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
   </div>
   
     
@@ -146,15 +137,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/" rel="tag">Golang</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Golang/" style="font-size: 15px;">Golang</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
