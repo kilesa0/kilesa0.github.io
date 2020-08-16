@@ -188,7 +188,10 @@
 
 <h4 id="Docker阿里云加速"><a href="#Docker阿里云加速" class="headerlink" title="Docker阿里云加速"></a>Docker阿里云加速</h4><p><a href="https://cr.console.aliyun.com" target="_blank" rel="noopener" title="镜像">阿里云</a></p>
 <h4 id="Docker拉取Mysql镜像"><a href="#Docker拉取Mysql镜像" class="headerlink" title="Docker拉取Mysql镜像"></a>Docker拉取Mysql镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:latest</span><br></pre></td></tr></table></figure>
+
 <h4 id="Docker启动MySQL"><a href="#Docker启动MySQL" class="headerlink" title="Docker启动MySQL"></a>Docker启动MySQL</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd --name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql</span><br></pre></td></tr></table></figure>
+
+<h4 id="进入Docker容器"><a href="#进入Docker容器" class="headerlink" title="进入Docker容器"></a>进入Docker容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker attach 容器id</span><br></pre></td></tr></table></figure>
       
     </div>
   </div>
