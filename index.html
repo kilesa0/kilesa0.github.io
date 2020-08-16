@@ -191,7 +191,7 @@
 
 <h4 id="Docker启动MySQL"><a href="#Docker启动MySQL" class="headerlink" title="Docker启动MySQL"></a>Docker启动MySQL</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd --name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql</span><br></pre></td></tr></table></figure>
 
-<h4 id="进入Docker容器"><a href="#进入Docker容器" class="headerlink" title="进入Docker容器"></a>进入Docker容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker attach 容器id</span><br></pre></td></tr></table></figure>
+<h4 id="进入Docker容器"><a href="#进入Docker容器" class="headerlink" title="进入Docker容器"></a>进入Docker容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it 容器id /bin/bash</span><br></pre></td></tr></table></figure>
       
     </div>
   </div>
