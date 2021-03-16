@@ -4,19 +4,14 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo的基本使用 | Kilesa</title>
+  <title>Kilesa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="hexo的安装1npm install hexo-cli -g  创建新文章1hexo new &quot;文章的标题&quot; 简写 hexo n &quot;文章的标题&quot;   启动hexo1hexo server 简写 hexo s   编译成静态文件1hexo generate 简写 hexo g   快速部署1hexo deploy 简写 hexo d  快速清除，编译，部署1hexo clean &amp;&amp;amp">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo的基本使用">
-<meta property="og:url" content="https://gitee.com/kilesa/kilesa/2020/07/17/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Kilesa">
+<meta property="og:url" content="https://gitee.com/kilesa/kilesa/page/3/index.html">
 <meta property="og:site_name" content="Kilesa">
-<meta property="og:description" content="hexo的安装1npm install hexo-cli -g  创建新文章1hexo new &quot;文章的标题&quot; 简写 hexo n &quot;文章的标题&quot;   启动hexo1hexo server 简写 hexo s   编译成静态文件1hexo generate 简写 hexo g   快速部署1hexo deploy 简写 hexo d  快速清除，编译，部署1hexo clean &amp;&amp;amp">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-17T13:21:43.000Z">
-<meta property="article:modified_time" content="2020-08-29T10:00:20.000Z">
 <meta property="article:author" content="鱼糕先生">
-<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
   
   
@@ -65,7 +60,63 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hexo的基本使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main">
+  
+    <article id="post-nodejs的安装" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/07/18/nodejs%E7%9A%84%E5%AE%89%E8%A3%85/" class="article-date">
+  <time class="dt-published" datetime="2020-07-18T03:21:43.000Z" itemprop="datePublished">2020-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/07/18/nodejs%E7%9A%84%E5%AE%89%E8%A3%85/">nodejs的安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Windows下的安装"><a href="#Windows下的安装" class="headerlink" title="Windows下的安装"></a>Windows下的安装</h2><h3 id="官方下载地址"><a href="#官方下载地址" class="headerlink" title="官方下载地址"></a><a href="https://nodejs.org/en/" target="_blank" rel="noopener">官方下载地址</a></h3><p>下载之后直接双击安装即可,安装中记得添加到环境变量。</p>
+<h2 id="centos下安装"><a href="#centos下安装" class="headerlink" title="centos下安装"></a>centos下安装</h2><p>1.安装gcc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc gcc-c++</span><br></pre></td></tr></table></figure>
+
+<p>2.下载node国内镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://npm.taobao.org/mirrors/node/v14.5.0/node-v14.5.0-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>3.解压并重命名文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf  node-v14.5.0-linux-x64.tar.gz</span><br><span class="line">mv node-v14.5.0-linux-x64.tar.gz node</span><br></pre></td></tr></table></figure>
+
+<p>4.添加环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>在文件最后添加以下配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NODE_HOME=你node的位置</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$NODE_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+
+<p>5.刷新配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>5.验证结果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="cnpm安装"><a href="#cnpm安装" class="headerlink" title="cnpm安装"></a>cnpm安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-g 全局安装</span><br><span class="line">npm install -g cnpm --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hexo的基本使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2020/07/17/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
   <time class="dt-published" datetime="2020-07-17T13:21:43.000Z" itemprop="datePublished">2020-07-17</time>
@@ -78,8 +129,8 @@
       <header class="article-header">
         
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      Hexo的基本使用
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/07/17/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Hexo的基本使用</a>
     </h1>
   
 
@@ -105,24 +156,17 @@
     </div>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2020/07/18/nodejs%E7%9A%84%E5%AE%89%E8%A3%85/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          nodejs的安装
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-  
 </article>
 
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
 
 </section>
         
