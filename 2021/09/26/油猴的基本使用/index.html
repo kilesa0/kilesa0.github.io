@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>nodejs的安装 | Kilesa</title>
+  <title>油猴的基本使用 | Kilesa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Windows下的安装官方下载地址下载之后直接双击安装即可,安装中记得添加到环境变量。 centos下安装1.安装gcc 1yum install gcc gcc-c++  2.下载node国内镜像 1wget https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node&#x2F;v14.5.0&#x2F;node-v14.5.0-linux-x64.tar.gz  3.解压并重命名文件夹 12tar -">
+  <meta name="description" content="油猴脚本的学习   关键词 描述    @name 脚本的名字   @namespace 脚本的描述   @match 脚本的作用域名   @grant 脚本的权限   @version 脚本的版本号   @author 脚本的作者   @description 脚本的更新时间   ps:grant设置为none就是直接运行在前端页面中,否则就是运行在一个沙盒环境,需要使用unsafeWindow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nodejs的安装">
-<meta property="og:url" content="https://gitee.com/kilesa/kilesa/2020/07/18/nodejs%E7%9A%84%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:title" content="油猴的基本使用">
+<meta property="og:url" content="https://gitee.com/kilesa/kilesa/2021/09/26/%E6%B2%B9%E7%8C%B4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Kilesa">
-<meta property="og:description" content="Windows下的安装官方下载地址下载之后直接双击安装即可,安装中记得添加到环境变量。 centos下安装1.安装gcc 1yum install gcc gcc-c++  2.下载node国内镜像 1wget https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node&#x2F;v14.5.0&#x2F;node-v14.5.0-linux-x64.tar.gz  3.解压并重命名文件夹 12tar -">
+<meta property="og:description" content="油猴脚本的学习   关键词 描述    @name 脚本的名字   @namespace 脚本的描述   @match 脚本的作用域名   @grant 脚本的权限   @version 脚本的版本号   @author 脚本的作者   @description 脚本的更新时间   ps:grant设置为none就是直接运行在前端页面中,否则就是运行在一个沙盒环境,需要使用unsafeWindow">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-18T03:21:43.000Z">
-<meta property="article:modified_time" content="2020-08-12T10:02:56.000Z">
+<meta property="article:published_time" content="2021-09-26T07:30:22.000Z">
+<meta property="article:modified_time" content="2021-09-26T07:31:04.769Z">
 <meta property="article:author" content="鱼糕先生">
-<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="Tampermonkey">
 <meta name="twitter:card" content="summary">
   
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-nodejs的安装" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-油猴的基本使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/07/18/nodejs%E7%9A%84%E5%AE%89%E8%A3%85/" class="article-date">
-  <time class="dt-published" datetime="2020-07-18T03:21:43.000Z" itemprop="datePublished">2020-07-18</time>
+    <a href="/2021/09/26/%E6%B2%B9%E7%8C%B4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-09-26T07:30:22.000Z" itemprop="datePublished">2021-09-26</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      nodejs的安装
+      油猴的基本使用
     </h1>
   
 
@@ -87,29 +87,54 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="Windows下的安装"><a href="#Windows下的安装" class="headerlink" title="Windows下的安装"></a>Windows下的安装</h2><h3 id="官方下载地址"><a href="#官方下载地址" class="headerlink" title="官方下载地址"></a><a href="https://nodejs.org/en/" target="_blank" rel="noopener">官方下载地址</a></h3><p>下载之后直接双击安装即可,安装中记得添加到环境变量。</p>
-<h2 id="centos下安装"><a href="#centos下安装" class="headerlink" title="centos下安装"></a>centos下安装</h2><p>1.安装gcc</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc gcc-c++</span><br></pre></td></tr></table></figure>
+        <h2 id="油猴脚本的学习"><a href="#油猴脚本的学习" class="headerlink" title="油猴脚本的学习"></a>油猴脚本的学习</h2><table>
+<thead>
+<tr>
+<th>关键词</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@name</td>
+<td>脚本的名字</td>
+</tr>
+<tr>
+<td>@namespace</td>
+<td>脚本的描述</td>
+</tr>
+<tr>
+<td>@match</td>
+<td>脚本的作用域名</td>
+</tr>
+<tr>
+<td>@grant</td>
+<td>脚本的权限</td>
+</tr>
+<tr>
+<td>@version</td>
+<td>脚本的版本号</td>
+</tr>
+<tr>
+<td>@author</td>
+<td>脚本的作者</td>
+</tr>
+<tr>
+<td>@description</td>
+<td>脚本的更新时间</td>
+</tr>
+</tbody></table>
+<h6 id="ps-grant设置为none就是直接运行在前端页面中-否则就是运行在一个沙盒环境-需要使用unsafeWindow去操作前端的元素。"><a href="#ps-grant设置为none就是直接运行在前端页面中-否则就是运行在一个沙盒环境-需要使用unsafeWindow去操作前端的元素。" class="headerlink" title="ps:grant设置为none就是直接运行在前端页面中,否则就是运行在一个沙盒环境,需要使用unsafeWindow去操作前端的元素。"></a>ps:grant设置为none就是直接运行在前端页面中,否则就是运行在一个沙盒环境,需要使用unsafeWindow去操作前端的元素。</h6><h4 id="这是立即执行函数"><a href="#这是立即执行函数" class="headerlink" title="这是立即执行函数"></a>这是立即执行函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;)()</span><br></pre></td></tr></table></figure>
 
-<p>2.下载node国内镜像</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://npm.taobao.org/mirrors/node/v14.5.0/node-v14.5.0-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+<h4 id="设置百度的第三个关键热词为红色"><a href="#设置百度的第三个关键热词为红色" class="headerlink" title="设置百度的第三个关键热词为红色"></a>设置百度的第三个关键热词为红色</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">"#hotsearch-content-wrapper li a span"</span>)[<span class="number">13</span>].style.color=<span class="string">"red"</span></span><br></pre></td></tr></table></figure>
 
-<p>3.解压并重命名文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf  node-v14.5.0-linux-x64.tar.gz</span><br><span class="line">mv node-v14.5.0-linux-x64.tar.gz node</span><br></pre></td></tr></table></figure>
+<h4 id="所有热词设置为红色"><a href="#所有热词设置为红色" class="headerlink" title="所有热词设置为红色"></a>所有热词设置为红色</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#hotsearch-content-wrapper li a span"</span>).css(&#123;<span class="string">"color"</span>:<span class="string">"red"</span>&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>4.添加环境变量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+<h4 id="把百度的新闻修改成旧闻"><a href="#把百度的新闻修改成旧闻" class="headerlink" title="把百度的新闻修改成旧闻"></a>把百度的新闻修改成旧闻</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#s-top-left &gt; a:nth-child(1)"</span>).text(<span class="string">"旧闻"</span>)</span><br></pre></td></tr></table></figure>
 
-<p>在文件最后添加以下配置：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NODE_HOME=你node的位置</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$NODE_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<h4 id="将搜索框的placeholder改为油猴脚本"><a href="#将搜索框的placeholder改为油猴脚本" class="headerlink" title="将搜索框的placeholder改为油猴脚本"></a>将搜索框的placeholder改为油猴脚本</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#kw"</span>).attr(<span class="string">"placeholder"</span>,<span class="string">"油猴脚本"</span>);</span><br></pre></td></tr></table></figure>
 
-<p>5.刷新配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+<h4 id="设置为按下-键就打开谷歌翻译"><a href="#设置为按下-键就打开谷歌翻译" class="headerlink" title="设置为按下~键就打开谷歌翻译"></a>设置为按下~键就打开谷歌翻译</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(<span class="string">'keypress'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.which == <span class="number">96</span>) &#123;</span><br><span class="line">        $(location).attr(<span class="string">'href'</span>,<span class="string">'https://translate.google.cn/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>5.验证结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-
-<h2 id="cnpm安装"><a href="#cnpm安装" class="headerlink" title="cnpm安装"></a>cnpm安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-g 全局安装</span><br><span class="line">npm install -g cnpm --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
       
     </div>
   </div>
@@ -117,19 +142,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/07/18/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          Markdown的基本使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/17/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/09/16/%E7%BD%91%E9%A1%B5JS%E7%9A%84%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">Hexo的基本使用</div>
+      <div class="article-nav-title">网页JS的学习</div>
     </a>
   
 </nav>
