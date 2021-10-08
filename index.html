@@ -97,7 +97,7 @@
 </tr>
 <tr>
 <td>@namespace</td>
-<td>脚本的描述</td>
+<td>脚本的作用域</td>
 </tr>
 <tr>
 <td>@match</td>
@@ -117,10 +117,14 @@
 </tr>
 <tr>
 <td>@description</td>
-<td>脚本的更新时间</td>
+<td>脚本的描述</td>
+</tr>
+<tr>
+<td>@require</td>
+<td>导入JS文件</td>
 </tr>
 </tbody></table>
-<h6 id="ps-grant设置为none就是直接运行在前端页面中-否则就是运行在一个沙盒环境-需要使用unsafeWindow去操作前端的元素。"><a href="#ps-grant设置为none就是直接运行在前端页面中-否则就是运行在一个沙盒环境-需要使用unsafeWindow去操作前端的元素。" class="headerlink" title="ps:grant设置为none就是直接运行在前端页面中,否则就是运行在一个沙盒环境,需要使用unsafeWindow去操作前端的元素。"></a>ps:grant设置为none就是直接运行在前端页面中,否则就是运行在一个沙盒环境,需要使用unsafeWindow去操作前端的元素。</h6><h4 id="这是立即执行函数"><a href="#这是立即执行函数" class="headerlink" title="这是立即执行函数"></a>这是立即执行函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;)()</span><br></pre></td></tr></table></figure>
+<h6 id="ps-grant设置为none就是直接运行在前端页面中-否则就是运行在一个沙盒环境-需要使用unsafeWindow去操作前端的元素。"><a href="#ps-grant设置为none就是直接运行在前端页面中-否则就是运行在一个沙盒环境-需要使用unsafeWindow去操作前端的元素。" class="headerlink" title="ps:grant设置为none就是直接运行在前端页面中,否则就是运行在一个沙盒环境,需要使用unsafeWindow去操作前端的元素。"></a>ps:grant设置为none就是直接运行在前端页面中,否则就是运行在一个沙盒环境,需要使用unsafeWindow去操作前端的元素。</h6><h4 id="这是初始函数简写"><a href="#这是初始函数简写" class="headerlink" title="这是初始函数简写"></a>这是初始函数简写</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;)()</span><br></pre></td></tr></table></figure>
 
 <h4 id="设置百度的第三个关键热词为红色"><a href="#设置百度的第三个关键热词为红色" class="headerlink" title="设置百度的第三个关键热词为红色"></a>设置百度的第三个关键热词为红色</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">"#hotsearch-content-wrapper li a span"</span>)[<span class="number">13</span>].style.color=<span class="string">"red"</span></span><br></pre></td></tr></table></figure>
 
@@ -131,6 +135,11 @@
 <h4 id="将搜索框的placeholder改为油猴脚本"><a href="#将搜索框的placeholder改为油猴脚本" class="headerlink" title="将搜索框的placeholder改为油猴脚本"></a>将搜索框的placeholder改为油猴脚本</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#kw"</span>).attr(<span class="string">"placeholder"</span>,<span class="string">"油猴脚本"</span>);</span><br></pre></td></tr></table></figure>
 
 <h4 id="设置为按下-键就打开谷歌翻译"><a href="#设置为按下-键就打开谷歌翻译" class="headerlink" title="设置为按下~键就打开谷歌翻译"></a>设置为按下~键就打开谷歌翻译</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(<span class="string">'keypress'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.which == <span class="number">96</span>) &#123;</span><br><span class="line">        $(location).attr(<span class="string">'href'</span>,<span class="string">'https://translate.google.cn/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="导入JQ"><a href="#导入JQ" class="headerlink" title="导入JQ"></a>导入JQ</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @require     https://code.jquery.com/jquery-3.1.1.min.js</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="在控制台导入JQ"><a href="#在控制台导入JQ" class="headerlink" title="在控制台导入JQ"></a>在控制台导入JQ</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> importJs=<span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">importJs.setAttribute(<span class="string">"type"</span>,<span class="string">"text/javascript"</span>);</span><br><span class="line">importJs.setAttribute(<span class="string">"src"</span>, <span class="string">'https://code.jquery.com/jquery-3.1.1.min.js'</span>);</span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(importJs);</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
