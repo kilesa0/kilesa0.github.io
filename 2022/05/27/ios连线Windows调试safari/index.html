@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>ios连线Windows调试safari | Kilesa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1.安装iTunes 2.安装scoop步骤 1：在 PowerShell 中打开远程权限1Set-ExecutionPolicy RemoteSigned -scope CurrentUser; 步骤 2：自定义 Scoop 安装目录12$env:SCOOP&#x3D;&#39;Your_Scoop_Path&#39;[Environment]::SetEnvironmentVariable(&#39;SCOOP&#39;, $env:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ios连线Windows调试safari">
+<meta property="og:url" content="https://gitee.com/kilesa/kilesa/2022/05/27/ios%E8%BF%9E%E7%BA%BFWindows%E8%B0%83%E8%AF%95safari/index.html">
+<meta property="og:site_name" content="Kilesa">
+<meta property="og:description" content="1.安装iTunes 2.安装scoop步骤 1：在 PowerShell 中打开远程权限1Set-ExecutionPolicy RemoteSigned -scope CurrentUser; 步骤 2：自定义 Scoop 安装目录12$env:SCOOP&#x3D;&#39;Your_Scoop_Path&#39;[Environment]::SetEnvironmentVariable(&#39;SCOOP&#39;, $env:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/kilesa/kilesa/2022/05/27/images/iTunes.png">
+<meta property="og:image" content="https://gitee.com/kilesa/kilesa/2022/05/27/images/localhost.png">
+<meta property="og:image" content="https://gitee.com/kilesa/kilesa/2022/05/27/images/inspect.png">
+<meta property="article:published_time" content="2022-05-27T14:23:01.000Z">
+<meta property="article:modified_time" content="2022-05-27T14:44:25.398Z">
+<meta property="article:author" content="鱼糕先生">
+<meta property="article:tag" content="ios">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/kilesa/kilesa/2022/05/27/images/iTunes.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Kilesa</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">文章</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ios连线Windows调试safari" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/05/27/ios%E8%BF%9E%E7%BA%BFWindows%E8%B0%83%E8%AF%95safari/" class="article-date">
+  <time class="dt-published" datetime="2022-05-27T14:23:01.000Z" itemprop="datePublished">2022-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      ios连线Windows调试safari
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装iTunes"><a href="#1-安装iTunes" class="headerlink" title="1.安装iTunes"></a>1.安装iTunes</h3><p><img src="../images/iTunes.png" alt="iTunes"></p>
+<h3 id="2-安装scoop"><a href="#2-安装scoop" class="headerlink" title="2.安装scoop"></a>2.安装scoop</h3><h4 id="步骤-1：在-PowerShell-中打开远程权限"><a href="#步骤-1：在-PowerShell-中打开远程权限" class="headerlink" title="步骤 1：在 PowerShell 中打开远程权限"></a>步骤 1：在 PowerShell 中打开远程权限</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy RemoteSigned -scope CurrentUser;</span><br></pre></td></tr></table></figure>
+<h4 id="步骤-2：自定义-Scoop-安装目录"><a href="#步骤-2：自定义-Scoop-安装目录" class="headerlink" title="步骤 2：自定义 Scoop 安装目录"></a>步骤 2：自定义 Scoop 安装目录</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">env:SCOOP=<span class="string">'Your_Scoop_Path'</span></span></span><br><span class="line">[Environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')</span><br></pre></td></tr></table></figure>
+<p>如果跳过该步骤， Scoop 将默认把所有用户安装的 App 和 Scoop 本身置于<code>C:\Users\user_name\scoop</code></p>
+<h4 id="步骤-3：下载并安装-Scoop"><a href="#步骤-3：下载并安装-Scoop" class="headerlink" title="步骤 3：下载并安装 Scoop"></a>步骤 3：下载并安装 Scoop</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iwr -useb get.scoop.sh | iex</span><br><span class="line">scoop update</span><br></pre></td></tr></table></figure>
+<h4 id="国内镜像"><a href="#国内镜像" class="headerlink" title="国内镜像"></a>国内镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iwr -useb https://gitee.com/glsnames/scoop-installer/raw/master/bin/install.ps1 | iex</span><br><span class="line">scoop config SCOOP_REPO 'https://gitee.com/glsnames/scoop-installer'</span><br><span class="line">scoop update</span><br></pre></td></tr></table></figure>
+<h3 id="3-通过scoop安装-ios-webkit-debug-proxy"><a href="#3-通过scoop安装-ios-webkit-debug-proxy" class="headerlink" title="3.通过scoop安装 ios_webkit_debug_proxy"></a>3.通过scoop安装 ios_webkit_debug_proxy</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add extras</span><br><span class="line">scoop install ios-webkit-debug-proxy</span><br><span class="line">npm install -g vs-libimobile</span><br></pre></td></tr></table></figure>
+<h4 id="4-安装最新版本的-remotedebug-ios-webkit-adapter"><a href="#4-安装最新版本的-remotedebug-ios-webkit-adapter" class="headerlink" title="4.安装最新版本的 remotedebug-ios-webkit-adapter"></a>4.安装最新版本的 remotedebug-ios-webkit-adapter</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install remotedebug-ios-webkit-adapter -g</span><br></pre></td></tr></table></figure>
+<h4 id="5-在Safari中启用远程调试"><a href="#5-在Safari中启用远程调试" class="headerlink" title="5.在Safari中启用远程调试"></a>5.在Safari中启用远程调试</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">为了显示您的iOS设备，您需要启用启用开发者模式进行调试。</span><br><span class="line"></span><br><span class="line">Iphone =&gt; 设置 =&gt; Safari 浏览器 =&gt; 高级 =&gt; web检查器 =&gt; 启用</span><br></pre></td></tr></table></figure>
+<h4 id="6-让您的计算机信任您的iOS设备"><a href="#6-让您的计算机信任您的iOS设备" class="headerlink" title="6.让您的计算机信任您的iOS设备"></a>6.让您的计算机信任您的iOS设备</h4><p><code>将Iphone手机连接电脑，必须点击“信任”，并打开 itunes, 以确保手机连接。</code></p>
+<h4 id="7-打开PowerShell，运行以下命令："><a href="#7-打开PowerShell，运行以下命令：" class="headerlink" title="7.打开PowerShell，运行以下命令："></a>7.打开PowerShell，运行以下命令：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">remotedebug_ios_webkit_adapter --port=9000</span><br></pre></td></tr></table></figure>
+<h4 id="8-打开chrome-输入网址：-chrome-inspect-devices"><a href="#8-打开chrome-输入网址：-chrome-inspect-devices" class="headerlink" title="8.打开chrome, 输入网址： chrome://inspect/#devices"></a>8.打开chrome, 输入网址： <code>chrome://inspect/#devices</code></h4><p><code>如下图所示，点击 inspect, 即可调试。</code><br><img src="../images/localhost.png" alt="localhost"><br><img src="../images/inspect.png" alt="inspect"></p>
+<h2 id="Ps-首次访问需要翻墙-Safari浏览器对变量比较严格-不能直接定义"><a href="#Ps-首次访问需要翻墙-Safari浏览器对变量比较严格-不能直接定义" class="headerlink" title="Ps:首次访问需要翻墙,Safari浏览器对变量比较严格,不能直接定义"></a><code>Ps:首次访问需要翻墙,Safari浏览器对变量比较严格,不能直接定义</code></h2>
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/05/27/%E6%B2%B9%E7%8C%B4%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">油猴网络请求</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/" rel="tag">Golang</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Docker/" style="font-size: 13.33px;">Docker</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Golang/" style="font-size: 20px;">Golang</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Tampermonkey/" style="font-size: 13.33px;">Tampermonkey</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/nodejs/" style="font-size: 13.33px;">nodejs</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/05/27/ios%E8%BF%9E%E7%BA%BFWindows%E8%B0%83%E8%AF%95safari/">ios连线Windows调试safari</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/27/%E6%B2%B9%E7%8C%B4%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">油猴网络请求</a>
+          </li>
+        
+          <li>
+            <a href="/2022/02/12/hexo%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90/">hexo挂载本地资源</a>
+          </li>
+        
+          <li>
+            <a href="/2022/02/12/GoLand%E6%BF%80%E6%B4%BB/">GoLand激活</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/26/%E6%B2%B9%E7%8C%B4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">油猴的基本使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 鱼糕先生<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">文章</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

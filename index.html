@@ -62,6 +62,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ios连线Windows调试safari" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/05/27/ios%E8%BF%9E%E7%BA%BFWindows%E8%B0%83%E8%AF%95safari/" class="article-date">
+  <time class="dt-published" datetime="2022-05-27T14:23:01.000Z" itemprop="datePublished">2022-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/05/27/ios%E8%BF%9E%E7%BA%BFWindows%E8%B0%83%E8%AF%95safari/">ios连线Windows调试safari</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装iTunes"><a href="#1-安装iTunes" class="headerlink" title="1.安装iTunes"></a>1.安装iTunes</h3><p><img src="../images/iTunes.png" alt="iTunes"></p>
+<h3 id="2-安装scoop"><a href="#2-安装scoop" class="headerlink" title="2.安装scoop"></a>2.安装scoop</h3><h4 id="步骤-1：在-PowerShell-中打开远程权限"><a href="#步骤-1：在-PowerShell-中打开远程权限" class="headerlink" title="步骤 1：在 PowerShell 中打开远程权限"></a>步骤 1：在 PowerShell 中打开远程权限</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy RemoteSigned -scope CurrentUser;</span><br></pre></td></tr></table></figure>
+<h4 id="步骤-2：自定义-Scoop-安装目录"><a href="#步骤-2：自定义-Scoop-安装目录" class="headerlink" title="步骤 2：自定义 Scoop 安装目录"></a>步骤 2：自定义 Scoop 安装目录</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">env:SCOOP=<span class="string">'Your_Scoop_Path'</span></span></span><br><span class="line">[Environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')</span><br></pre></td></tr></table></figure>
+<p>如果跳过该步骤， Scoop 将默认把所有用户安装的 App 和 Scoop 本身置于<code>C:\Users\user_name\scoop</code></p>
+<h4 id="步骤-3：下载并安装-Scoop"><a href="#步骤-3：下载并安装-Scoop" class="headerlink" title="步骤 3：下载并安装 Scoop"></a>步骤 3：下载并安装 Scoop</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iwr -useb get.scoop.sh | iex</span><br><span class="line">scoop update</span><br></pre></td></tr></table></figure>
+<h4 id="国内镜像"><a href="#国内镜像" class="headerlink" title="国内镜像"></a>国内镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iwr -useb https://gitee.com/glsnames/scoop-installer/raw/master/bin/install.ps1 | iex</span><br><span class="line">scoop config SCOOP_REPO 'https://gitee.com/glsnames/scoop-installer'</span><br><span class="line">scoop update</span><br></pre></td></tr></table></figure>
+<h3 id="3-通过scoop安装-ios-webkit-debug-proxy"><a href="#3-通过scoop安装-ios-webkit-debug-proxy" class="headerlink" title="3.通过scoop安装 ios_webkit_debug_proxy"></a>3.通过scoop安装 ios_webkit_debug_proxy</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add extras</span><br><span class="line">scoop install ios-webkit-debug-proxy</span><br><span class="line">npm install -g vs-libimobile</span><br></pre></td></tr></table></figure>
+<h4 id="4-安装最新版本的-remotedebug-ios-webkit-adapter"><a href="#4-安装最新版本的-remotedebug-ios-webkit-adapter" class="headerlink" title="4.安装最新版本的 remotedebug-ios-webkit-adapter"></a>4.安装最新版本的 remotedebug-ios-webkit-adapter</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install remotedebug-ios-webkit-adapter -g</span><br></pre></td></tr></table></figure>
+<h4 id="5-在Safari中启用远程调试"><a href="#5-在Safari中启用远程调试" class="headerlink" title="5.在Safari中启用远程调试"></a>5.在Safari中启用远程调试</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">为了显示您的iOS设备，您需要启用启用开发者模式进行调试。</span><br><span class="line"></span><br><span class="line">Iphone =&gt; 设置 =&gt; Safari 浏览器 =&gt; 高级 =&gt; web检查器 =&gt; 启用</span><br></pre></td></tr></table></figure>
+<h4 id="6-让您的计算机信任您的iOS设备"><a href="#6-让您的计算机信任您的iOS设备" class="headerlink" title="6.让您的计算机信任您的iOS设备"></a>6.让您的计算机信任您的iOS设备</h4><p><code>将Iphone手机连接电脑，必须点击“信任”，并打开 itunes, 以确保手机连接。</code></p>
+<h4 id="7-打开PowerShell，运行以下命令："><a href="#7-打开PowerShell，运行以下命令：" class="headerlink" title="7.打开PowerShell，运行以下命令："></a>7.打开PowerShell，运行以下命令：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">remotedebug_ios_webkit_adapter --port=9000</span><br></pre></td></tr></table></figure>
+<h4 id="8-打开chrome-输入网址：-chrome-inspect-devices"><a href="#8-打开chrome-输入网址：-chrome-inspect-devices" class="headerlink" title="8.打开chrome, 输入网址： chrome://inspect/#devices"></a>8.打开chrome, 输入网址： <code>chrome://inspect/#devices</code></h4><p><code>如下图所示，点击 inspect, 即可调试。</code><br><img src="../images/localhost.png" alt="localhost"><br><img src="../images/inspect.png" alt="inspect"></p>
+<h2 id="Ps-首次访问需要翻墙-Safari浏览器对变量比较严格-不能直接定义"><a href="#Ps-首次访问需要翻墙-Safari浏览器对变量比较严格-不能直接定义" class="headerlink" title="Ps:首次访问需要翻墙,Safari浏览器对变量比较严格,不能直接定义"></a><code>Ps:首次访问需要翻墙,Safari浏览器对变量比较严格,不能直接定义</code></h2>
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-油猴网络请求" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/05/27/%E6%B2%B9%E7%8C%B4%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/" class="article-date">
@@ -76,7 +120,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/05/27/%E6%B2%B9%E7%8C%B4%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">&#39;油猴网络请求&#39;</a>
+      <a class="p-name article-title" href="/2022/05/27/%E6%B2%B9%E7%8C%B4%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">油猴网络请求</a>
     </h1>
   
 
@@ -243,7 +287,7 @@
 
 <h4 id="设置为按下-键就打开谷歌翻译"><a href="#设置为按下-键就打开谷歌翻译" class="headerlink" title="设置为按下~键就打开谷歌翻译"></a>设置为按下~键就打开谷歌翻译</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(<span class="string">'keypress'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.which == <span class="number">96</span>) &#123;</span><br><span class="line">        $(location).attr(<span class="string">'href'</span>,<span class="string">'https://translate.google.cn/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h4 id="导入JQ"><a href="#导入JQ" class="headerlink" title="导入JQ"></a>导入JQ</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @require     https://code.jquery.com/jquery-3.1.1.min.js</span></span><br></pre></td></tr></table></figure>
+<h4 id="导入JQ"><a href="#导入JQ" class="headerlink" title="导入JQ"></a>导入JQ</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @require     https://code.jquery.com/jquery-3.6.0.min.js</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="在控制台导入JQ"><a href="#在控制台导入JQ" class="headerlink" title="在控制台导入JQ"></a>在控制台导入JQ</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> importJs=<span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">importJs.setAttribute(<span class="string">"type"</span>,<span class="string">"text/javascript"</span>);</span><br><span class="line">importJs.setAttribute(<span class="string">"src"</span>, <span class="string">'https://code.jquery.com/jquery-3.1.1.min.js'</span>);</span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(importJs);</span><br></pre></td></tr></table></figure>
 
@@ -591,64 +635,6 @@
 
 
   
-    <article id="post-Linux的打包与解包" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/11/Linux%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85/" class="article-date">
-  <time class="dt-published" datetime="2021-03-11T09:31:40.000Z" itemprop="datePublished">2021-03-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/11/Linux%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85/">Linux的打包与解包</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="tar"><a href="#tar" class="headerlink" title=".tar"></a>.tar</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">打包:tar -xvf 文件名.tar</span><br><span class="line">解包:tar cvf 文件名.tar DirName</span><br><span class="line"><span class="comment">#注：tar是打包，不是压缩！</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="gz"><a href="#gz" class="headerlink" title=".gz"></a>.gz</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">解压1：gunzip 文件名.gz</span><br><span class="line">解压2：gzip -d 文件名.gz</span><br><span class="line">压缩：gzip 文件名</span><br></pre></td></tr></table></figure>
-
-<h4 id="tar-gz-和-tgz"><a href="#tar-gz-和-tgz" class="headerlink" title=".tar.gz 和 .tgz"></a>.tar.gz 和 .tgz</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：tar zxvf 文件名.tar.gz</span><br><span class="line">压缩：tar zcvf 文件名.tar.gz DirName</span><br></pre></td></tr></table></figure>
-
-<h4 id="bz2"><a href="#bz2" class="headerlink" title=".bz2"></a>.bz2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">解压1：bzip2 -d 文件名.bz2</span><br><span class="line">解压2：bunzip2 文件名.bz2</span><br><span class="line">压缩： bzip2 -z 文件名</span><br></pre></td></tr></table></figure>
-
-<h4 id="tar-bz2"><a href="#tar-bz2" class="headerlink" title=".tar.bz2"></a>.tar.bz2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：tar jxvf 文件名.tar.bz2</span><br><span class="line">压缩：tar jcvf 文件名.tar.bz2 路径名</span><br></pre></td></tr></table></figure>
-
-<h4 id="bz"><a href="#bz" class="headerlink" title=".bz"></a>.bz</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压1：bzip2 -d 文件名.bz</span><br><span class="line">解压2：bunzip2 文件名.bz</span><br></pre></td></tr></table></figure>
-
-<h4 id="tar-bz"><a href="#tar-bz" class="headerlink" title=".tar.bz"></a>.tar.bz</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解压：tar jxvf 文件名.tar.bz</span><br></pre></td></tr></table></figure>
-
-<h4 id="Z"><a href="#Z" class="headerlink" title=".Z"></a>.Z</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：uncompress 文件名.Z</span><br><span class="line">压缩：compress 文件名</span><br></pre></td></tr></table></figure>
-
-<h4 id="tar-z"><a href="#tar-z" class="headerlink" title=".tar.z"></a>.tar.z</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：tar Zxvf 文件名.tar.Z</span><br><span class="line">压缩：tar Zcvf 文件名.tar.Z 路径名</span><br></pre></td></tr></table></figure>
-
-<h4 id="zip"><a href="#zip" class="headerlink" title=".zip"></a>.zip</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：unzip 文件名.zip</span><br><span class="line">压缩：zip 文件名.zip 路径名</span><br></pre></td></tr></table></figure>
-
-<h4 id="rar"><a href="#rar" class="headerlink" title=".rar"></a>.rar</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：rar x 文件名.rar</span><br><span class="line">压缩：rar a 文件名.rar 路径名</span><br></pre></td></tr></table></figure>
-
-<h4 id="lha"><a href="#lha" class="headerlink" title=".lha"></a>.lha</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：lha -e 文件名.lha</span><br><span class="line">压缩：lha -a 文件名.lha 路径名</span><br></pre></td></tr></table></figure>
-
-<h4 id="rpm"><a href="#rpm" class="headerlink" title=".rpm"></a>.rpm</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解包：rpm2cpio 文件名.rpm | cpio -div</span><br></pre></td></tr></table></figure>
-
-<h4 id="deb"><a href="#deb" class="headerlink" title=".deb"></a>.deb</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解包：ar p 文件名.deb data.tar.gz | tar zxf -</span><br></pre></td></tr></table></figure>
-      
-    </div>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -667,7 +653,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/" rel="tag">Golang</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/" rel="tag">Golang</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -677,7 +663,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Docker/" style="font-size: 13.33px;">Docker</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Golang/" style="font-size: 20px;">Golang</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Tampermonkey/" style="font-size: 13.33px;">Tampermonkey</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/nodejs/" style="font-size: 13.33px;">nodejs</a>
+      <a href="/tags/Docker/" style="font-size: 13.33px;">Docker</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Golang/" style="font-size: 20px;">Golang</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Tampermonkey/" style="font-size: 13.33px;">Tampermonkey</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/nodejs/" style="font-size: 13.33px;">nodejs</a>
     </div>
   </div>
 
@@ -686,7 +672,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -699,7 +685,11 @@
       <ul>
         
           <li>
-            <a href="/2022/05/27/%E6%B2%B9%E7%8C%B4%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">&#39;油猴网络请求&#39;</a>
+            <a href="/2022/05/27/ios%E8%BF%9E%E7%BA%BFWindows%E8%B0%83%E8%AF%95safari/">ios连线Windows调试safari</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/27/%E6%B2%B9%E7%8C%B4%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">油猴网络请求</a>
           </li>
         
           <li>
@@ -712,10 +702,6 @@
         
           <li>
             <a href="/2021/09/26/%E6%B2%B9%E7%8C%B4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">油猴的基本使用</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/16/%E7%BD%91%E9%A1%B5JS%E7%9A%84%E5%AD%A6%E4%B9%A0/">网页JS的学习</a>
           </li>
         
       </ul>
