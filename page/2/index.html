@@ -62,6 +62,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Nginx的基本使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/11/Nginx%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-03-11T09:41:40.000Z" itemprop="datePublished">2021-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/11/Nginx%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Nginx的基本使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Nginx的安装"><a href="#一、Nginx的安装" class="headerlink" title="一、Nginx的安装"></a>一、Nginx的安装</h2><h4 id="Windows下安装"><a href="#Windows下安装" class="headerlink" title="Windows下安装"></a>Windows下安装</h4><h6 id="1-下载Nginx"><a href="#1-下载Nginx" class="headerlink" title="1.下载Nginx"></a>1.下载Nginx</h6><p><a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a> 下载稳定版。</p>
+<p>以nginx/Windows-1.18.0为例：<a target="_blank" rel="noopener" href="http://nginx.org/download/nginx-1.18.0.zip，下载后解压。">http://nginx.org/download/nginx-1.18.0.zip，下载后解压。</a></p>
+<h6 id="2-安装Nginx"><a href="#2-安装Nginx" class="headerlink" title="2.安装Nginx"></a>2.安装Nginx</h6><p>Windows下直接在cmd窗口启动nginx.exe，好像不支持中文路径。</p>
+<p>conf/nginx.conf是配置文件</p>
+<h6 id="3-检测是否启动成功"><a href="#3-检测是否启动成功" class="headerlink" title="3.检测是否启动成功"></a>3.检测是否启动成功</h6><p>访问：<a target="_blank" rel="noopener" href="http://localhost/">http://localhost/</a></p>
+<h4 id="Linux下的安装"><a href="#Linux下的安装" class="headerlink" title="Linux下的安装"></a>Linux下的安装</h4><h6 id="1-下载Nginx-1"><a href="#1-下载Nginx-1" class="headerlink" title="1.下载Nginx"></a>1.下载Nginx</h6><p>以nginx-1.18.0为例：<a target="_blank" rel="noopener" href="http://nginx.org/download/nginx-1.18.0.tar.gz">http://nginx.org/download/nginx-1.18.0.tar.gz</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  nginx-1.18.0  <span class="comment">#tar -zxvf用于解压 .tar.gz和.tgz</span></span><br></pre></td></tr></table></figure>
+
+<p>用命令解压</p>
+<h6 id="2-安装Nginx-1"><a href="#2-安装Nginx-1" class="headerlink" title="2.安装Nginx"></a>2.安装Nginx</h6><p>进入解压后的Nginx目录后，执行安装命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure  <span class="comment">#是用来检测你的安装平台的目标特征的。比如它会检测你是不是有CC或GCC，并不是需要CC或GCC，它是个shell脚本。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#make是用来编译的，它从Makefile中读取指令，然后编译。   make install是用来安装的，它也从Makefile中读取指令，安装到指定的位置。</span></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">whereis nginx <span class="comment">#查询nginx的目录</span></span><br><span class="line"><span class="built_in">cd</span> /usr/local/ngxin/ <span class="comment">#一般情况下nginx会在这个目录</span></span><br><span class="line">./sbin/nginx <span class="comment">#直接启动nginx</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="3-检测是否启动成功-1"><a href="#3-检测是否启动成功-1" class="headerlink" title="3.检测是否启动成功"></a>3.检测是否启动成功</h6><p>访问服务器IP地址+设置的端口号</p>
+<h2 id="二、Nginx的常用命令"><a href="#二、Nginx的常用命令" class="headerlink" title="二、Nginx的常用命令"></a>二、Nginx的常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#以下命令都在nginx的sbin目录下执行</span></span><br><span class="line">./nginx <span class="comment">#启动</span></span><br><span class="line">./nginx -s stop <span class="comment">#停止</span></span><br><span class="line">./nginx -s quit <span class="comment">#安全退出</span></span><br><span class="line">./nginx -s reload <span class="comment">#重新加载配置文件</span></span><br><span class="line">ps aux|grep nginx <span class="comment">#查看nginx进程</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、Nginx的配置文件"><a href="#三、Nginx的配置文件" class="headerlink" title="三、Nginx的配置文件"></a>三、Nginx的配置文件</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#user  nobody;  #用来显示是谁运行的Nginx</span></span><br><span class="line"><span class="attribute">worker_processes</span>  <span class="number">1</span>;  <span class="comment">#工作进程数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#error_log  logs/error.log;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  notice;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  info;   #不同的错误日志级别</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#pid        logs/nginx.pid;  #nginx的进程ID</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;  <span class="comment">#最大连接数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span>       mime.types;  <span class="comment">#包括</span></span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream;  <span class="comment">#响应类型</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">sendfile</span>        <span class="literal">on</span>; </span><br><span class="line">    <span class="comment">#指定是否使用sendfile系统调用来传输文件。</span></span><br><span class="line">    <span class="comment">#sendfile系统调用在两个文件描述符之间直接传递数据(完全在内核中操作)，</span></span><br><span class="line">    <span class="comment">#从而避免了数据在内核缓冲区和用户缓冲区之间的拷贝，操作效率很高，被称之为零拷贝</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#keepalive_timeout  0;</span></span><br><span class="line">    <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>; <span class="comment">#超时</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#gzip  on;</span></span><br><span class="line">    </span><br><span class="line">	<span class="comment">#可以有多个sever，用来配置https，也就是443端口</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#负载均衡,有多个代理时使用</span></span><br><span class="line">    <span class="section">upstream</span> kileas&#123;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">127.0.0.1:8080</span> weight=<span class="number">1</span>;   <span class="comment">#weight是权重</span></span><br><span class="line">        <span class="attribute">server</span> <span class="number">127.0.0.1:8081</span> weight=<span class="number">1</span>;  <span class="comment">#注意；号,其中一个无法访问时依然可以正常运行</span></span><br><span class="line">        <span class="comment">#服务器资源</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>; <span class="comment">#端口号</span></span><br><span class="line">        <span class="attribute">server_name</span>  localhost;  <span class="comment">#ip地址</span></span><br><span class="line">        </span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="comment">#root   html;</span></span><br><span class="line">            <span class="comment">#index  index.html index.htm;  #返回静态html</span></span><br><span class="line">            <span class="attribute">proxy_pass</span> http://kileas;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">#错误页面设置</span></span><br><span class="line">        <span class="comment">#error_page  404              /404.html;</span></span><br><span class="line">        <span class="attribute">error_page</span>   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /50x.html;</span><br><span class="line">        <span class="section">location</span> = /50x.html &#123;</span><br><span class="line">            <span class="attribute">root</span>   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Linux的打包与解包" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/03/11/Linux%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85/" class="article-date">
@@ -450,58 +505,6 @@
 
 
   
-    <article id="post-用nvm管理多个nodejs" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/08/10/%E7%94%A8nvm%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAnodejs/" class="article-date">
-  <time class="dt-published" datetime="2020-08-10T09:11:37.000Z" itemprop="datePublished">2020-08-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/08/10/%E7%94%A8nvm%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAnodejs/">用nvm管理多个nodejs</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Mac或Linux下安装NVM"><a href="#Mac或Linux下安装NVM" class="headerlink" title="Mac或Linux下安装NVM"></a>Mac或Linux下安装NVM</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash</span><br></pre></td></tr></table></figure>
-
-<h2 id="Windows下安装NVM"><a href="#Windows下安装NVM" class="headerlink" title="Windows下安装NVM"></a>Windows下安装NVM</h2><p><a target="_blank" rel="noopener" href="http://nvm.uihtm.com/">官网</a></p>
-<h2 id="Windows下NVM的基本命令"><a href="#Windows下NVM的基本命令" class="headerlink" title="Windows下NVM的基本命令"></a>Windows下NVM的基本命令</h2><p>查看版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm version</span><br></pre></td></tr></table></figure>
-<p>查看Npm可以安装的版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm list available</span><br></pre></td></tr></table></figure>
-<p>查看已安装的版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm list</span><br></pre></td></tr></table></figure>
-<p>使用Nvm下载Node</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 版本号</span><br></pre></td></tr></table></figure>
-<p>nvm换源</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">直接在settings.txt后加上这两行</span><br><span class="line">node_mirror: https://npm.taobao.org/mirrors/node/ </span><br><span class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</span><br><span class="line"></span><br><span class="line">ps:不建议使用,无法安装npm</span><br></pre></td></tr></table></figure>
-<p>切换Node版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use 版本号</span><br></pre></td></tr></table></figure>
-<p>刚刚安装完成时没有选中任何版本，需要切换一次版本</p>
-<blockquote>
-<h5 id="建议直接输入Nvm查看使用详情"><a href="#建议直接输入Nvm查看使用详情" class="headerlink" title="建议直接输入Nvm查看使用详情"></a>建议直接输入Nvm查看使用详情</h5></blockquote>
-
-      
-    </div>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -520,7 +523,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/" rel="tag">Golang</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/" rel="tag">Golang</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -530,7 +533,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Docker/" style="font-size: 13.33px;">Docker</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Golang/" style="font-size: 20px;">Golang</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/Tampermonkey/" style="font-size: 16.67px;">Tampermonkey</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/nodejs/" style="font-size: 13.33px;">nodejs</a>
+      <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Golang/" style="font-size: 20px;">Golang</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/Tampermonkey/" style="font-size: 15px;">Tampermonkey</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a>
     </div>
   </div>
 
@@ -539,7 +542,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -552,7 +555,11 @@
       <ul>
         
           <li>
-            <a href="/2022/06/19/%E6%B2%B9%E7%8C%B4%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/">油猴进阶操作</a>
+            <a href="/2022/08/15/python%E6%89%93%E5%8C%85exe/">python打包exe</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/19/%E6%B2%B9%E7%8C%B4%E7%9A%84%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/">油猴的进阶操作</a>
           </li>
         
           <li>
@@ -560,15 +567,11 @@
           </li>
         
           <li>
-            <a href="/2022/05/27/%E6%B2%B9%E7%8C%B4%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">油猴进阶操作</a>
+            <a href="/2022/05/27/%E6%B2%B9%E7%8C%B4%E7%9A%84%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">油猴的网络请求</a>
           </li>
         
           <li>
             <a href="/2022/02/12/hexo%E6%8C%82%E8%BD%BD%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90/">hexo挂载本地资源</a>
-          </li>
-        
-          <li>
-            <a href="/2022/02/12/GoLand%E6%BF%80%E6%B4%BB/">GoLand激活</a>
           </li>
         
       </ul>
