@@ -4,19 +4,14 @@
   <meta charset="utf-8">
   
   
-  <title>Crontab和Screen的基本使用 | Kilesa</title>
+  <title>Kilesa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Crontab1.Crontab 选项1234crontab –e   修改 crontab 文件. 如果文件不存在会自动创建。 crontab –l   显示 crontab 文件。 crontab -r   删除 crontab 文件。crontab -ir  删除 crontab 文件前提醒用户。 ps:一般情况下会写一个sh脚本来执行定时任务 2.Crontab 使用定时   项目 含义">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Crontab和Screen的基本使用">
-<meta property="og:url" content="https://gitee.com/kilesa/kilesa/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Kilesa">
+<meta property="og:url" content="https://gitee.com/kilesa/kilesa/page/4/index.html">
 <meta property="og:site_name" content="Kilesa">
-<meta property="og:description" content="Crontab1.Crontab 选项1234crontab –e   修改 crontab 文件. 如果文件不存在会自动创建。 crontab –l   显示 crontab 文件。 crontab -r   删除 crontab 文件。crontab -ir  删除 crontab 文件前提醒用户。 ps:一般情况下会写一个sh脚本来执行定时任务 2.Crontab 使用定时   项目 含义">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-26T14:01:39.000Z">
-<meta property="article:modified_time" content="2020-08-12T10:02:56.000Z">
 <meta property="article:author" content="鱼糕先生">
-<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
   
   
@@ -65,10 +60,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Crontab和Screen的基本使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main">
+  
+    <article id="post-hexo的基本使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time class="dt-published" datetime="2020-07-26T14:01:39.000Z" itemprop="datePublished">2020-07-26</time>
+    <a href="/2020/07/17/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2020-07-17T13:21:43.000Z" itemprop="datePublished">2020-07-17</time>
 </a>
     
   </div>
@@ -78,8 +75,8 @@
       <header class="article-header">
         
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      Crontab和Screen的基本使用
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/07/17/hexo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Hexo的基本使用</a>
     </h1>
   
 
@@ -87,78 +84,36 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Crontab"><a href="#Crontab" class="headerlink" title="Crontab"></a>Crontab</h1><h2 id="1-Crontab-选项"><a href="#1-Crontab-选项" class="headerlink" title="1.Crontab 选项"></a>1.Crontab 选项</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">crontab –e   修改 crontab 文件. 如果文件不存在会自动创建。 </span><br><span class="line">crontab –l   显示 crontab 文件。 </span><br><span class="line">crontab -r   删除 crontab 文件。</span><br><span class="line">crontab -ir  删除 crontab 文件前提醒用户。</span><br></pre></td></tr></table></figure>
-<p>ps:一般情况下会写一个sh脚本来执行定时任务</p>
-<h2 id="2-Crontab-使用定时"><a href="#2-Crontab-使用定时" class="headerlink" title="2.Crontab 使用定时"></a>2.Crontab 使用定时</h2><table>
-<thead>
-<tr>
-<th align="center">项目</th>
-<th align="center">含义</th>
-<th align="center">范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">第一个*</td>
-<td align="center">一个小时中的第几分钟</td>
-<td align="center">0-59</td>
-</tr>
-<tr>
-<td align="center">第二个*</td>
-<td align="center">一天中的第几个小时</td>
-<td align="center">0-23</td>
-</tr>
-<tr>
-<td align="center">第三个*</td>
-<td align="center">一月中的第几天</td>
-<td align="center">1-31</td>
-</tr>
-<tr>
-<td align="center">第四个*</td>
-<td align="center">一年中的第几月</td>
-<td align="center">1-12</td>
-</tr>
-<tr>
-<td align="center">第五个*</td>
-<td align="center">一周中的第几个星期</td>
-<td align="center">0和7均表示星期天</td>
-</tr>
-</tbody></table>
-<h2 id="3-Crontab-使用示例"><a href="#3-Crontab-使用示例" class="headerlink" title="3.Crontab 使用示例"></a>3.Crontab 使用示例</h2><p>每分钟执行一次root目录下的qd.sh脚本，并将打印内容输出到qd.txt:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/1 * * * * /root/qd.sh &gt;&gt; qd.txt</span><br></pre></td></tr></table></figure>
-<p>每天0:0执行一次root目录下的qd.sh脚本，并将打印内容输出到qd.txt:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 * * * /root/qd.sh &gt;&gt; qd.txt</span><br></pre></td></tr></table></figure>
-<h1 id="Screen与Nohup"><a href="#Screen与Nohup" class="headerlink" title="Screen与Nohup"></a>Screen与Nohup</h1><h2 id="1-Screen-选项"><a href="#1-Screen-选项" class="headerlink" title="1.Screen 选项"></a>1.Screen 选项</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">screen -<span class="built_in">ls</span>               查看现有的画布</span><br><span class="line">screen -r name           进入名为name的画布</span><br><span class="line">screen -S name           创建名为name的画布</span><br><span class="line">screen -S -X name quit   退出并删除名为name的画布</span><br></pre></td></tr></table></figure>
-<h2 id="2-nohup-选项"><a href="#2-nohup-选项" class="headerlink" title="2.nohup 选项"></a>2.nohup 选项</h2><p>执行qiandao.sh脚本并将内容打印到nohup.out:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> qiandao.sh </span><br></pre></td></tr></table></figure>
-<p>执行qiandao.sh脚本并将内容打印到name.out:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> qiandao.sh &gt;&gt; name.out</span><br></pre></td></tr></table></figure>
+        <h3 id="hexo的安装"><a href="#hexo的安装" class="headerlink" title="hexo的安装"></a>hexo的安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建新文章"><a href="#创建新文章" class="headerlink" title="创建新文章"></a>创建新文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;文章的标题&quot;</span> 简写 hexo n <span class="string">&quot;文章的标题&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="启动hexo"><a href="#启动hexo" class="headerlink" title="启动hexo"></a>启动hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server 简写 hexo s</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="编译成静态文件"><a href="#编译成静态文件" class="headerlink" title="编译成静态文件"></a>编译成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate 简写 hexo g</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="快速部署"><a href="#快速部署" class="headerlink" title="快速部署"></a>快速部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy 简写 hexo d</span><br></pre></td></tr></table></figure>
+
+<h3 id="快速清除，编译，部署"><a href="#快速清除，编译，部署" class="headerlink" title="快速清除，编译，部署"></a>快速清除，编译，部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方文档</a></h2>
       
     </div>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2020/07/28/%E7%94%A8python%E5%AE%9E%E6%97%B6%E8%8E%B7%E5%8F%96%E5%BC%B9%E5%B9%95%E5%92%8C%E5%8F%91%E9%80%81%E5%BC%B9%E5%B9%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          用python实时获取弹幕和发送弹幕
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/07/25/%E7%94%A8python%E8%BF%9B%E8%A1%8Cdnf%E8%AE%BA%E5%9D%9B%E7%AD%BE%E5%88%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">用python进行dnf论坛签到</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
 
 </section>
         
