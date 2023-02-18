@@ -139,12 +139,14 @@
 <h6 id="2-使用pip离线安装"><a href="#2-使用pip离线安装" class="headerlink" title="2.使用pip离线安装"></a>2.使用pip离线安装</h6><p>①.查询包的依赖包</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip show [包名]</span><br></pre></td></tr></table></figure>
 <p>②.下载whl文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip download -r requirements</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip download -r requirements.txt</span><br></pre></td></tr></table></figure>
 <p>③.pip安装</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install xxx.whl</span><br></pre></td></tr></table></figure>
 <p>④.<a target="_blank" rel="noopener" href="https://pypi.org/project/" title="Pypi">官网</a></p>
 <p>⑤.批量安装</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --find-links=. -r requirements.txt</span><br></pre></td></tr></table></figure>
+<p>ps:<code>requirements.txt</code>文件中的库名需要是全名</p>
+
       
     </div>
   </div>
