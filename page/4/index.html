@@ -62,6 +62,73 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python发送邮件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/01/Python%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2020-08-01T12:41:47.000Z" itemprop="datePublished">2020-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/08/01/Python%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/">Python发送邮件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>记录一下用python发送QQ邮件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import yagmail</span><br><span class="line"></span><br><span class="line">args=&#123;</span><br><span class="line">    <span class="string">&quot;user&quot;</span>:<span class="string">&quot;xxxxxx@qq.com&quot;</span>,       <span class="comment">#发邮件账号</span></span><br><span class="line">    <span class="string">&quot;password&quot;</span>:<span class="string">&quot;这是授权码&quot;</span>,       <span class="comment">#发件账号对应的密码（QQ使用的是授权码，而不是QQ密码）</span></span><br><span class="line">    <span class="string">&quot;host&quot;</span>:<span class="string">&quot;smtp.qq.com&quot;</span>,         <span class="comment">#邮件账号的SMTP服务器</span></span><br><span class="line">    <span class="string">&quot;port&quot;</span>:<span class="string">&quot;465&quot;</span>                  <span class="comment">#SMTP服务器端口 465</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 收件人列表</span></span><br><span class="line"></span><br><span class="line">emailList=[<span class="string">&quot;xxxxxxxx@xx.com&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#实例化发送者</span></span><br><span class="line"></span><br><span class="line">email = yagmail.SMTP(**args) <span class="comment">#将参数已字典的形式传入</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用消息发送函数，参数分别是：to=收件人列表，subject 邮件标题，contents 邮件正文，cc 邮件抄送人</span></span><br><span class="line"></span><br><span class="line">email.send(to=emailList,subject=<span class="string">&quot;这里是标题&quot;</span>,contents=<span class="string">&quot;这里是正文&quot;</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-用python实时获取弹幕和发送弹幕" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/07/28/%E7%94%A8python%E5%AE%9E%E6%97%B6%E8%8E%B7%E5%8F%96%E5%BC%B9%E5%B9%95%E5%92%8C%E5%8F%91%E9%80%81%E5%BC%B9%E5%B9%95/" class="article-date">
+  <time class="dt-published" datetime="2020-07-28T09:47:14.000Z" itemprop="datePublished">2020-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/07/28/%E7%94%A8python%E5%AE%9E%E6%97%B6%E8%8E%B7%E5%8F%96%E5%BC%B9%E5%B9%95%E5%92%8C%E5%8F%91%E9%80%81%E5%BC%B9%E5%B9%95/">用python实时获取弹幕和发送弹幕</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="用python获取弹幕"><a href="#用python获取弹幕" class="headerlink" title="用python获取弹幕"></a>用python获取弹幕</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line"><span class="comment">#弹幕列表API</span></span><br><span class="line">url = <span class="string">&quot;https://api.live.bilibili.com/xlive/web-room/v1/dM/gethistory&quot;</span></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line"><span class="string">&quot;cookie&quot;</span>: <span class="string">&quot;cookie&quot;</span></span><br><span class="line">&#125; <span class="comment">#用户cookies ，应该同时要验证token和cookie</span></span><br><span class="line"></span><br><span class="line">data = &#123;<span class="string">&quot;roomid&quot;</span>: 271744,  <span class="comment">#房间id</span></span><br><span class="line"><span class="string">&quot;csrf_token&quot;</span>: <span class="string">&quot;token&quot;</span>,</span><br><span class="line"><span class="string">&quot;csrf&quot;</span>: <span class="string">&quot;token&quot;</span>,</span><br><span class="line"><span class="string">&quot;visit_id&quot;</span>: <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">timeb = 0 <span class="comment">#初始化时间</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> True:  <span class="comment">#保持死循环获取弹幕</span></span><br><span class="line"></span><br><span class="line">    html = requests.post(url, data=data, headers=headers)</span><br><span class="line"></span><br><span class="line">    text = json.loads(html.text)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> text[<span class="string">&quot;data&quot;</span>][<span class="string">&quot;room&quot;</span>]:</span><br><span class="line">        <span class="comment"># 先转换为时间数组</span></span><br><span class="line">        timeArray = time.strptime(i[<span class="string">&quot;timeline&quot;</span>], <span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 转换为时间戳</span></span><br><span class="line">        timeStamp = int(time.mktime(timeArray))</span><br><span class="line">        <span class="keyword">if</span> timeStamp &gt; timeb:  <span class="comment">#时间戳比对，获取新发布的弹幕</span></span><br><span class="line">            <span class="built_in">print</span>(i[<span class="string">&quot;text&quot;</span>]) <span class="comment">#打印出最新发出的弹幕</span></span><br><span class="line">            timeb = timeStamp</span><br><span class="line">    time.sleep(2)  <span class="comment">#获取一次停留两秒</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="用python发送弹幕"><a href="#用python发送弹幕" class="headerlink" title="用python发送弹幕"></a>用python发送弹幕</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line"><span class="comment">#发送弹幕API</span></span><br><span class="line">url = <span class="string">&quot;https://api.live.bilibili.com/msg/send&quot;</span></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line"><span class="string">&quot;cookie&quot;</span>: <span class="string">&quot;cookie&quot;</span></span><br><span class="line">&#125; <span class="comment">#用户cookies ，应该同时要验证token和cookie</span></span><br><span class="line"></span><br><span class="line">data = &#123;<span class="string">&quot;color&quot;</span>: 16777215, <span class="comment">#弹幕颜色</span></span><br><span class="line"><span class="string">&quot;fontsize&quot;</span>: 25, <span class="comment">#文字大小</span></span><br><span class="line"><span class="string">&quot;mode&quot;</span>: 1, <span class="comment">#弹幕的模式 (1、普通；4、底端；5、顶端；6、逆向；7、特殊；9、高级)</span></span><br><span class="line"><span class="string">&quot;msg&quot;</span>: <span class="string">&quot;测试&quot;</span>,  <span class="comment">#这是发送内容</span></span><br><span class="line"><span class="string">&quot;rnd&quot;</span>: 1595922575,</span><br><span class="line"><span class="string">&quot;roomid&quot;</span>: 5514899,  <span class="comment">#房间id</span></span><br><span class="line"><span class="string">&quot;bubble&quot;</span>: 0,</span><br><span class="line"><span class="string">&quot;csrf_token&quot;</span>: <span class="string">&quot;token&quot;</span>,  <span class="comment">#用户token</span></span><br><span class="line"><span class="string">&quot;csrf&quot;</span>: <span class="string">&quot;token&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">html = requests.post(url,data=data,headers=headers)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(html.text)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Crontab和Screen的基本使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2020/07/26/Crontab%E5%92%8CScreen%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
@@ -390,7 +457,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/" rel="tag">Golang</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spleeter/" rel="tag">Spleeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/" rel="tag">Golang</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spleeter/" rel="tag">Spleeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -400,7 +467,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Golang/" style="font-size: 20px;">Golang</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/Spleeter/" style="font-size: 10px;">Spleeter</a> <a href="/tags/Tampermonkey/" style="font-size: 15px;">Tampermonkey</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a>
+      <a href="/tags/Docker/" style="font-size: 13.33px;">Docker</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Golang/" style="font-size: 20px;">Golang</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Spleeter/" style="font-size: 10px;">Spleeter</a> <a href="/tags/Tampermonkey/" style="font-size: 16.67px;">Tampermonkey</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/nodejs/" style="font-size: 13.33px;">nodejs</a>
     </div>
   </div>
 
@@ -409,7 +476,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -422,6 +489,14 @@
       <ul>
         
           <li>
+            <a href="/2023/02/25/Jquery%E5%B8%B8%E7%94%A8%E7%9A%84%E9%80%89%E6%8B%A9%E5%99%A8/">Jquery常用的选择器</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/25/Python%E8%8E%B7%E5%8F%96cookie/">Python获取cookie</a>
+          </li>
+        
+          <li>
             <a href="/2023/01/11/Python%E6%89%BE%E5%88%B0%E6%9C%80%E5%90%8E%E4%BF%AE%E6%94%B9%E7%9A%84%E6%96%87%E4%BB%B6/">Python找到最后修改的文件</a>
           </li>
         
@@ -431,14 +506,6 @@
         
           <li>
             <a href="/2022/12/30/Spleeter%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">Spleeter的安装与使用</a>
-          </li>
-        
-          <li>
-            <a href="/2022/10/21/pyinstxtractor/">pyinstxtractor</a>
-          </li>
-        
-          <li>
-            <a href="/2022/10/16/%E7%BD%91%E9%A1%B5%E6%8C%89%E9%92%AE/">网页按钮</a>
           </li>
         
       </ul>
