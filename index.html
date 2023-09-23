@@ -62,6 +62,82 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-现在使用的镜像汇总与使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/09/23/%E7%8E%B0%E5%9C%A8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F%E6%B1%87%E6%80%BB%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2023-09-23T13:21:51.000Z" itemprop="datePublished">2023-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/09/23/%E7%8E%B0%E5%9C%A8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F%E6%B1%87%E6%80%BB%E4%B8%8E%E4%BD%BF%E7%94%A8/">现在使用的镜像汇总与使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="golang安装包镜像"><a href="#golang安装包镜像" class="headerlink" title="golang安装包镜像"></a>golang安装包镜像</h4><p><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/golang/">https://mirrors.aliyun.com/golang/</a></p>
+<h4 id="openssh安装包镜像"><a href="#openssh安装包镜像" class="headerlink" title="openssh安装包镜像"></a>openssh安装包镜像</h4><p><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/openssh/">https://mirrors.aliyun.com/openssh/</a></p>
+<h4 id="python库pypi镜像"><a href="#python库pypi镜像" class="headerlink" title="python库pypi镜像"></a>python库pypi镜像</h4><p><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/pypi/simple/">https://mirrors.aliyun.com/pypi/simple/</a></p>
+<h6 id="1、找到文件"><a href="#1、找到文件" class="headerlink" title="1、找到文件"></a>1、找到文件</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.pip/pip.conf</span><br></pre></td></tr></table></figure>
+<h6 id="2、修改文件"><a href="#2、修改文件" class="headerlink" title="2、修改文件"></a>2、修改文件</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">global</span>]</span><br><span class="line">index-url = http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+<h4 id="git-windows安装包镜像"><a href="#git-windows安装包镜像" class="headerlink" title="git-windows安装包镜像"></a>git-windows安装包镜像</h4><p><a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-使用TinyPNG-API裁剪图片遇到的问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/09/23/%E4%BD%BF%E7%94%A8TinyPNG-API%E8%A3%81%E5%89%AA%E5%9B%BE%E7%89%87%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2023-09-23T13:07:26.000Z" itemprop="datePublished">2023-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/09/23/%E4%BD%BF%E7%94%A8TinyPNG-API%E8%A3%81%E5%89%AA%E5%9B%BE%E7%89%87%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">使用TinyPNG-API裁剪图片遇到的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="一、导入-Tinify库"><a href="#一、导入-Tinify库" class="headerlink" title="一、导入    Tinify库"></a>一、导入    Tinify库</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Tinify <span class="string">&quot;github.com/gwpp/tinify-go/tinify&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="二、判断文件是否为图片"><a href="#二、判断文件是否为图片" class="headerlink" title="二、判断文件是否为图片"></a>二、判断文件是否为图片</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;image&quot;</span> <span class="comment">// 导入需要支持的图片格式</span></span><br><span class="line">	_ <span class="string">&quot;image/jpeg&quot;</span></span><br><span class="line">	_ <span class="string">&quot;image/png&quot;</span></span><br><span class="line">	<span class="string">&quot;os&quot;</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isImage</span><span class="params">(filePath <span class="type">string</span>)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">	file, err := os.Open(filePath)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;无法打开文件:&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> file.Close()</span><br><span class="line">	_, _, err = image.Decode(file)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;无法解码为图片:&quot;</span>, err)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	filePath := <span class="string">&quot;example.jpg&quot;</span></span><br><span class="line">	isImg := isImage(filePath)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%s 是否为图片：%t\n&quot;</span>, filePath, isImg)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="三、裁剪图片"><a href="#三、裁剪图片" class="headerlink" title="三、裁剪图片"></a>三、裁剪图片</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//path为路径,res为文件名</span></span><br><span class="line"><span class="keyword">const</span> ApiKey = <span class="string">&quot;key&quot;</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">caijian</span><span class="params">(path <span class="type">string</span>,res <span class="type">string</span>)</span></span> &#123;</span><br><span class="line">	paths := path+res</span><br><span class="line"></span><br><span class="line">	Tinify.SetKey(ApiKey)</span><br><span class="line"></span><br><span class="line">	buf, _ := ioutil.ReadFile(paths)</span><br><span class="line"></span><br><span class="line">	source, _ := Tinify.FromBuffer(buf)</span><br><span class="line"></span><br><span class="line">	_ = source.Resize(&amp;Tinify.ResizeOption&#123;</span><br><span class="line">		Method: Tinify.ResizeMethodCover,</span><br><span class="line">		Width:  <span class="number">80</span>,</span><br><span class="line">		Height: <span class="number">100</span>,</span><br><span class="line">	&#125;)</span><br><span class="line">	fmt.Println(path + <span class="string">&quot;test_&quot;</span> + res)</span><br><span class="line"></span><br><span class="line">	err := source.ToFile(path + <span class="string">&quot;test_&quot;</span> + res)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;裁剪失败!!!&quot;</span>)</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		os.Remove(paths)</span><br><span class="line">		fmt.Printf(<span class="string">&quot;%s裁剪成功!!!\n&quot;</span>,res)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="四、判断文件是目录还是文件"><a href="#四、判断文件是目录还是文件" class="headerlink" title="四、判断文件是目录还是文件"></a>四、判断文件是目录还是文件</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">info, _ := os.Stat(<span class="string">&quot;path&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> info.IsDir() &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;你输入的是一个目录&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;你输入的是一个文件&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="五、遍历目录"><a href="#五、遍历目录" class="headerlink" title="五、遍历目录"></a>五、遍历目录</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> files []<span class="type">string</span></span><br><span class="line">_ = filepath.Walk(<span class="type">string</span>(res), <span class="function"><span class="keyword">func</span><span class="params">(path <span class="type">string</span>, info os.FileInfo, err <span class="type">error</span>)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">    files = <span class="built_in">append</span>(files, path)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">for</span> _, file := <span class="keyword">range</span> files &#123;</span><br><span class="line">	<span class="comment">//去掉文件夹本身</span></span><br><span class="line">    <span class="keyword">if</span> file == <span class="type">string</span>(res) &#123;</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(file)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="六、编译为32位"><a href="#六、编译为32位" class="headerlink" title="六、编译为32位"></a>六、编译为32位</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set GOOS=windows </span><br><span class="line">set GOARCH=<span class="number">386</span> </span><br><span class="line"><span class="keyword">go</span> build main.<span class="keyword">go</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Golang离线安装依赖" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/04/15/Golang%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96/" class="article-date">
@@ -361,85 +437,6 @@
 
 
   
-    <article id="post-Golang静态资源打包" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/03/12/Golang%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%89%93%E5%8C%85/" class="article-date">
-  <time class="dt-published" datetime="2023-03-12T04:02:55.000Z" itemprop="datePublished">2023-03-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/03/12/Golang%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%89%93%E5%8C%85/">Golang静态资源打包</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="导入embed"><a href="#导入embed" class="headerlink" title="导入embed"></a>导入embed</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="string">&quot;embed&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="将字符串嵌入变量中"><a href="#将字符串嵌入变量中" class="headerlink" title="将字符串嵌入变量中"></a>将字符串嵌入变量中</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    _ <span class="string">&quot;embed&quot;</span></span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//go:embed version.txt</span></span><br><span class="line"><span class="keyword">var</span> version <span class="type">string</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Printf(version)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="将字符数组嵌入变量中"><a href="#将字符数组嵌入变量中" class="headerlink" title="将字符数组嵌入变量中"></a>将字符数组嵌入变量中</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    _ <span class="string">&quot;embed&quot;</span></span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//go:embed version.txt</span></span><br><span class="line"><span class="keyword">var</span> versionByte []<span class="type">byte</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Printf(<span class="type">string</span>(versionByte))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>ps:一次只能定义一个,只能在包一级定义,不能在函数级定义</code></p>
-
-      
-    </div>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Robotgo的基本使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/03/12/Robotgo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time class="dt-published" datetime="2023-03-12T03:45:07.000Z" itemprop="datePublished">2023-03-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/03/12/Robotgo%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">Robotgo的基本使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="Windows下gcc的安装"><a href="#Windows下gcc的安装" class="headerlink" title="Windows下gcc的安装"></a>Windows下gcc的安装</h3><p>下载解压后,将bin加入环境变量,64位系统选择 x86_64-posix-seh<br><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/mingw-w64/"><code>MinGW-W64</code></a></p>
-<h3 id="安装Robotgo"><a href="#安装Robotgo" class="headerlink" title="安装Robotgo"></a>安装Robotgo</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> get github.com/<span class="keyword">go</span>-vgo/robotgo</span><br></pre></td></tr></table></figure>
-<h3 id="导入Robotgo包"><a href="#导入Robotgo包" class="headerlink" title="导入Robotgo包"></a>导入Robotgo包</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/go-vgo/robotgo&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="位置移动"><a href="#位置移动" class="headerlink" title="位置移动"></a>位置移动</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//移动到x，y位置处</span></span><br><span class="line">robotgo.Move(x, y)</span><br><span class="line"><span class="comment">//移动到x，y位置处后双击鼠标左键</span></span><br><span class="line"><span class="comment">//left 左键 center中心 right右键  true双击 false单击</span></span><br><span class="line">robotgo.MoveClick(x, y, <span class="string">`left`</span>, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="获取位置"><a href="#获取位置" class="headerlink" title="获取位置"></a>获取位置</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取鼠标当前位置</span></span><br><span class="line">x, y := robotgo.GetMousePos()</span><br></pre></td></tr></table></figure>
-<h3 id="输入字符串"><a href="#输入字符串" class="headerlink" title="输入字符串"></a>输入字符串</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">robotgo.TypeStr(<span class="string">&quot;Hello World!&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="停止操作"><a href="#停止操作" class="headerlink" title="停止操作"></a>停止操作</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">robotgo.Sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="按下按键"><a href="#按下按键" class="headerlink" title="按下按键"></a>按下按键</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//按下enter键</span></span><br><span class="line">robotgo.KeyTap(<span class="string">&quot;enter&quot;</span>)</span><br><span class="line"><span class="comment">//按下多个键</span></span><br><span class="line">robotgo.KeyTap(<span class="string">&quot;r&quot;</span>, <span class="string">&quot;command&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="屏幕操作"><a href="#屏幕操作" class="headerlink" title="屏幕操作"></a>屏幕操作</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取屏幕分辨率</span></span><br><span class="line">sx, sy := robotgo.GetScreenSize()</span><br><span class="line">fmt.Println(<span class="string">&quot;get screen size: &quot;</span>, sx, sy)</span><br><span class="line"><span class="comment">//根据坐标截图</span></span><br><span class="line">bit := robotgo.CaptureScreen(<span class="number">10</span>, <span class="number">10</span>, <span class="number">30</span>, <span class="number">30</span>)</span><br><span class="line"><span class="keyword">defer</span> robotgo.FreeBitmap(bit)</span><br><span class="line"><span class="comment">//保存图片</span></span><br><span class="line">robotgo.SaveBitmap(bit, <span class="string">&quot;test_1.png&quot;</span>)</span><br><span class="line"><span class="comment">//打开图片转换成Bitmap</span></span><br><span class="line">bitmap:=robotgo.OpenBitmap(<span class="string">&quot;1.png&quot;</span>)</span><br><span class="line"><span class="comment">//获取位图坐标</span></span><br><span class="line">fx, fy := robotgo.FindBitmap(bitmap)</span><br></pre></td></tr></table></figure>
-<h3 id="窗口操作"><a href="#窗口操作" class="headerlink" title="窗口操作"></a>窗口操作</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前选择的窗口</span></span><br><span class="line">cw:=robotgo.GetActive()</span><br><span class="line">time.Sleep(<span class="number">5</span>*time.Second)</span><br><span class="line"><span class="comment">//跳转到目标窗口</span></span><br><span class="line">robotgo.SetActive(cw)</span><br><span class="line"><span class="comment">//获取窗口标题</span></span><br><span class="line">fmt.Println(robotgo.GetTitle())</span><br><span class="line"><span class="comment">//获取窗口句柄</span></span><br><span class="line">fmt.Println(robotgo.GetHandle())</span><br><span class="line"><span class="comment">//设置句柄</span></span><br><span class="line">robotgo.SetHandle(<span class="number">3272727</span>)</span><br><span class="line"><span class="comment">//获取进程ID</span></span><br><span class="line">fmt.Println(robotgo.Pids())</span><br><span class="line"><span class="comment">//判断进程是否存在</span></span><br><span class="line">fmt.Println(robotgo.PidExists(<span class="number">928</span>))</span><br><span class="line"><span class="comment">//获取进程信息</span></span><br><span class="line">fmt.Println(robotgo.Process())</span><br><span class="line"><span class="comment">//根据PID查询进程名</span></span><br><span class="line">fmt.Println(robotgo.FindName(<span class="number">928</span>))</span><br><span class="line"><span class="comment">//查询所有进程名</span></span><br><span class="line">fmt.Println(robotgo.FindNames())</span><br><span class="line"><span class="comment">//根据进程名找PID</span></span><br><span class="line">fmt.Println(robotgo.FindIds(<span class="string">&quot;test.exe&quot;</span>))</span><br><span class="line"><span class="comment">//根据PID激活窗口</span></span><br><span class="line">fmt.Println(robotgo.ActivePID(<span class="number">9792</span>))</span><br></pre></td></tr></table></figure>
-      
-    </div>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -458,7 +455,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/" rel="tag">Golang</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spleeter/" rel="tag">Spleeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/" rel="tag">Golang</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spleeter/" rel="tag">Spleeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -468,7 +465,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Golang/" style="font-size: 20px;">Golang</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/Spleeter/" style="font-size: 10px;">Spleeter</a> <a href="/tags/Tampermonkey/" style="font-size: 15px;">Tampermonkey</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a>
+      <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Golang/" style="font-size: 20px;">Golang</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/Spleeter/" style="font-size: 10px;">Spleeter</a> <a href="/tags/Tampermonkey/" style="font-size: 15px;">Tampermonkey</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a>
     </div>
   </div>
 
@@ -477,7 +474,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -490,6 +487,14 @@
       <ul>
         
           <li>
+            <a href="/2023/09/23/%E7%8E%B0%E5%9C%A8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F%E6%B1%87%E6%80%BB%E4%B8%8E%E4%BD%BF%E7%94%A8/">现在使用的镜像汇总与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/23/%E4%BD%BF%E7%94%A8TinyPNG-API%E8%A3%81%E5%89%AA%E5%9B%BE%E7%89%87%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">使用TinyPNG-API裁剪图片遇到的问题</a>
+          </li>
+        
+          <li>
             <a href="/2023/04/15/Golang%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96/">Golang离线安装依赖</a>
           </li>
         
@@ -499,14 +504,6 @@
         
           <li>
             <a href="/2023/03/26/Golang%E7%BC%96%E8%AF%91%E5%9B%BE%E6%A0%87%E4%B8%8E%E6%9D%83%E9%99%90%E8%AF%B7%E6%B1%82/">Golang编译图标与权限请求</a>
-          </li>
-        
-          <li>
-            <a href="/2023/03/26/%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%B8%8B%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">遇到的一下问题记录</a>
-          </li>
-        
-          <li>
-            <a href="/2023/03/26/Golang%E6%93%8D%E4%BD%9Cexcel/">Golang操作excel</a>
           </li>
         
       </ul>

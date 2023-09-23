@@ -62,6 +62,88 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python打包与解包exe" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/15/Python%E6%89%93%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85exe/" class="article-date">
+  <time class="dt-published" datetime="2022-08-15T00:09:20.000Z" itemprop="datePublished">2022-08-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/08/15/Python%E6%89%93%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85exe/">Python打包与解包exe</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="使用Pyinstaller打包"><a href="#使用Pyinstaller打包" class="headerlink" title="使用Pyinstaller打包"></a>使用Pyinstaller打包</h2><h4 id="安装pyinstaller库"><a href="#安装pyinstaller库" class="headerlink" title="安装pyinstaller库"></a>安装pyinstaller库</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyinstaller</span><br></pre></td></tr></table></figure>
+<h4 id="打包单个文件"><a href="#打包单个文件" class="headerlink" title="打包单个文件"></a>打包单个文件</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -F test.py</span><br></pre></td></tr></table></figure>
+<h3 id="无dos窗口打包"><a href="#无dos窗口打包" class="headerlink" title="无dos窗口打包"></a>无dos窗口打包</h3><h4 id="1-方法一"><a href="#1-方法一" class="headerlink" title="1.方法一"></a>1.方法一</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -F test.py --noconsole </span><br></pre></td></tr></table></figure>
+<h4 id="2-方法二"><a href="#2-方法二" class="headerlink" title="2.方法二"></a>2.方法二</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -F -w test.py （-w就是取消窗口）</span><br></pre></td></tr></table></figure>
+<h4 id="打包多个或者资源文件"><a href="#打包多个或者资源文件" class="headerlink" title="打包多个或者资源文件"></a>打包多个或者资源文件</h4><h6 id="一、先生成-spec文件"><a href="#一、先生成-spec文件" class="headerlink" title="一、先生成.spec文件"></a>一、先生成.spec文件</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -F test.py</span><br></pre></td></tr></table></figure>
+<h6 id="二、修改-spec配置文件"><a href="#二、修改-spec配置文件" class="headerlink" title="二、修改.spec配置文件"></a>二、修改.spec配置文件</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- mode: python3 ; coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">block_cipher = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = Analysis(</span><br><span class="line">    [<span class="string">&#x27;test.py&#x27;</span>],</span><br><span class="line">    pathex=[],</span><br><span class="line">    binaries=[],</span><br><span class="line">    datas=[(<span class="string">&#x27;资源文件&#x27;</span>,<span class="string">&#x27;资源路径&#x27;</span>),(<span class="string">&#x27;./目录/图片.png&#x27;</span>,<span class="string">&#x27;目录&#x27;</span>)],</span><br><span class="line">    hiddenimports=[],</span><br><span class="line">    hookspath=[],</span><br><span class="line">    hooksconfig=&#123;&#125;,</span><br><span class="line">    runtime_hooks=[],</span><br><span class="line">    excludes=[],</span><br><span class="line">    win_no_prefer_redirects=<span class="literal">False</span>,</span><br><span class="line">    win_private_assemblies=<span class="literal">False</span>,</span><br><span class="line">    cipher=block_cipher,</span><br><span class="line">    noarchive=<span class="literal">False</span>,</span><br><span class="line">)</span><br><span class="line">pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)</span><br><span class="line"></span><br><span class="line">exe = EXE(</span><br><span class="line">    pyz,</span><br><span class="line">    a.scripts,</span><br><span class="line">    a.binaries,</span><br><span class="line">    a.zipfiles,</span><br><span class="line">    a.datas,</span><br><span class="line">    [],</span><br><span class="line">    name=<span class="string">&#x27;test&#x27;</span>,</span><br><span class="line">    debug=<span class="literal">False</span>,</span><br><span class="line">    bootloader_ignore_signals=<span class="literal">False</span>,</span><br><span class="line">    strip=<span class="literal">False</span>,</span><br><span class="line">    upx=<span class="literal">True</span>,</span><br><span class="line">    upx_exclude=[],</span><br><span class="line">    runtime_tmpdir=<span class="literal">None</span>,</span><br><span class="line">    console=<span class="literal">True</span>,</span><br><span class="line">    disable_windowed_traceback=<span class="literal">False</span>,</span><br><span class="line">    argv_emulation=<span class="literal">False</span>,</span><br><span class="line">    target_arch=<span class="literal">None</span>,</span><br><span class="line">    codesign_identity=<span class="literal">None</span>,</span><br><span class="line">    entitlements_file=<span class="literal">None</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>ps:<code>datas=[]</code>中的资源路径需要和脚本文件同级</p>
+<h6 id="三、修改脚本中的引用路径"><a href="#三、修改脚本中的引用路径" class="headerlink" title="三、修改脚本中的引用路径"></a>三、修改脚本中的引用路径</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.dirname(__file__)+<span class="string">&#x27;/目录/图片.png&#x27;</span></span><br></pre></td></tr></table></figure>
+<h6 id="四、再次打包"><a href="#四、再次打包" class="headerlink" title="四、再次打包"></a>四、再次打包</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller test.spec</span><br></pre></td></tr></table></figure>
+<p>ps:这次不用加 -F</p>
+<h2 id="使用Pyinstaller解包"><a href="#使用Pyinstaller解包" class="headerlink" title="使用Pyinstaller解包"></a>使用Pyinstaller解包</h2><h3 id="1-可执行文件-exe解包"><a href="#1-可执行文件-exe解包" class="headerlink" title="1.可执行文件.exe解包"></a>1.可执行文件.exe解包</h3><p>解包使用<code>pyinstxtractor</code>工具</p>
+<p>Github地址: <a target="_blank" rel="noopener" href="https://github.com/extremecoders-re/pyinstxtractor" title="pyinstxtractor">pyinstxtractor</a></p>
+<h4 id="pyinstxtractor文件备份"><a href="#pyinstxtractor文件备份" class="headerlink" title="pyinstxtractor文件备份"></a>pyinstxtractor文件备份</h4><a href="#">Post not found: pyinstxtractor</a>
+<p>下载文件后对要解包的文件执行<code>cmd</code>命令</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python pyinstxtractor.py test.exe</span><br></pre></td></tr></table></figure>
+<h3 id="2-反编译-pyc文件"><a href="#2-反编译-pyc文件" class="headerlink" title="2.反编译.pyc文件"></a>2.反编译<code>.pyc</code>文件</h3><h4 id="安装uncompyle6"><a href="#安装uncompyle6" class="headerlink" title="安装uncompyle6"></a>安装uncompyle6</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install uncompyle6</span><br></pre></td></tr></table></figure>
+<h4 id="反编译"><a href="#反编译" class="headerlink" title="反编译"></a>反编译</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uncompyle6 test.pyc &gt; test.py</span><br></pre></td></tr></table></figure>
+<p>ps:<code>test.pyc由解包生成</code></p>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-油猴的进阶操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/19/%E6%B2%B9%E7%8C%B4%E7%9A%84%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2022-06-19T09:09:45.000Z" itemprop="datePublished">2022-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/06/19/%E6%B2%B9%E7%8C%B4%E7%9A%84%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/">油猴的进阶操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="ajax-hook请求代理的使用"><a href="#ajax-hook请求代理的使用" class="headerlink" title="ajax-hook请求代理的使用"></a>ajax-hook请求代理的使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// @require      https://unpkg.com/ajax-hook@2.0.3/dist/ajaxhook.min.js</span><br><span class="line">// @run-at       document-start</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ah.proxy(&#123;</span><br><span class="line">    //请求发起前进入</span><br><span class="line">    onRequest: (config, handler) =&gt; &#123;</span><br><span class="line">        console.log(config.url)</span><br><span class="line">        handler.next(config);</span><br><span class="line">    &#125;,</span><br><span class="line">    //请求发生错误时进入，比如超时；注意，不包括http状态码错误，如404仍然会认为请求成功</span><br><span class="line">    onError: (err, handler) =&gt; &#123;</span><br><span class="line">        console.log(err.type)</span><br><span class="line">        handler.next(err)</span><br><span class="line">    &#125;,</span><br><span class="line">    //请求成功后进入</span><br><span class="line">    onResponse: (response, handler) =&gt; &#123;</span><br><span class="line">        console.log(response.response)</span><br><span class="line">        console.log(handler)</span><br><span class="line">        handler.next(response)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-ios连线Windows调试safari" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/05/27/ios%E8%BF%9E%E7%BA%BFWindows%E8%B0%83%E8%AF%95safari/" class="article-date">
@@ -573,97 +655,6 @@
 
 
   
-    <article id="post-Linux的打包与解包" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/11/Linux%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85/" class="article-date">
-  <time class="dt-published" datetime="2021-03-11T09:31:40.000Z" itemprop="datePublished">2021-03-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/11/Linux%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85/">Linux的打包与解包</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="tar"><a href="#tar" class="headerlink" title=".tar"></a>.tar</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">打包:tar -xvf 文件名.tar</span><br><span class="line">解包:tar cvf 文件名.tar DirName</span><br><span class="line"><span class="comment">#注：tar是打包，不是压缩！</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="gz"><a href="#gz" class="headerlink" title=".gz"></a>.gz</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">解压1：gunzip 文件名.gz</span><br><span class="line">解压2：gzip -d 文件名.gz</span><br><span class="line">压缩：gzip 文件名</span><br></pre></td></tr></table></figure>
-
-<h4 id="tar-gz-和-tgz"><a href="#tar-gz-和-tgz" class="headerlink" title=".tar.gz 和 .tgz"></a>.tar.gz 和 .tgz</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：tar zxvf 文件名.tar.gz</span><br><span class="line">压缩：tar zcvf 文件名.tar.gz DirName</span><br></pre></td></tr></table></figure>
-
-<h4 id="bz2"><a href="#bz2" class="headerlink" title=".bz2"></a>.bz2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">解压1：bzip2 -d 文件名.bz2</span><br><span class="line">解压2：bunzip2 文件名.bz2</span><br><span class="line">压缩： bzip2 -z 文件名</span><br></pre></td></tr></table></figure>
-
-<h4 id="tar-bz2"><a href="#tar-bz2" class="headerlink" title=".tar.bz2"></a>.tar.bz2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：tar jxvf 文件名.tar.bz2</span><br><span class="line">压缩：tar jcvf 文件名.tar.bz2 路径名</span><br></pre></td></tr></table></figure>
-
-<h4 id="bz"><a href="#bz" class="headerlink" title=".bz"></a>.bz</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压1：bzip2 -d 文件名.bz</span><br><span class="line">解压2：bunzip2 文件名.bz</span><br></pre></td></tr></table></figure>
-
-<h4 id="tar-bz"><a href="#tar-bz" class="headerlink" title=".tar.bz"></a>.tar.bz</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解压：tar jxvf 文件名.tar.bz</span><br></pre></td></tr></table></figure>
-
-<h4 id="Z"><a href="#Z" class="headerlink" title=".Z"></a>.Z</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：uncompress 文件名.Z</span><br><span class="line">压缩：compress 文件名</span><br></pre></td></tr></table></figure>
-
-<h4 id="tar-z"><a href="#tar-z" class="headerlink" title=".tar.z"></a>.tar.z</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：tar Zxvf 文件名.tar.Z</span><br><span class="line">压缩：tar Zcvf 文件名.tar.Z 路径名</span><br></pre></td></tr></table></figure>
-
-<h4 id="zip"><a href="#zip" class="headerlink" title=".zip"></a>.zip</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：unzip 文件名.zip</span><br><span class="line">压缩：zip 文件名.zip 路径名</span><br></pre></td></tr></table></figure>
-
-<h4 id="rar"><a href="#rar" class="headerlink" title=".rar"></a>.rar</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：rar x 文件名.rar</span><br><span class="line">压缩：rar a 文件名.rar 路径名</span><br></pre></td></tr></table></figure>
-
-<h4 id="lha"><a href="#lha" class="headerlink" title=".lha"></a>.lha</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解压：lha -e 文件名.lha</span><br><span class="line">压缩：lha -a 文件名.lha 路径名</span><br></pre></td></tr></table></figure>
-
-<h4 id="rpm"><a href="#rpm" class="headerlink" title=".rpm"></a>.rpm</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解包：rpm2cpio 文件名.rpm | cpio -div</span><br></pre></td></tr></table></figure>
-
-<h4 id="deb"><a href="#deb" class="headerlink" title=".deb"></a>.deb</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解包：ar p 文件名.deb data.tar.gz | tar zxf -</span><br></pre></td></tr></table></figure>
-      
-    </div>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-用Golang批量修改文件名" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/18/%E7%94%A8Golang%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/" class="article-date">
-  <time class="dt-published" datetime="2021-02-18T09:57:11.000Z" itemprop="datePublished">2021-02-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/18/%E7%94%A8Golang%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/">用Golang批量修改文件名</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="用Golang批量修改文件名"><a href="#用Golang批量修改文件名" class="headerlink" title="用Golang批量修改文件名"></a>用Golang批量修改文件名</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;io/ioutil&quot;</span></span><br><span class="line">	<span class="string">&quot;log&quot;</span></span><br><span class="line">	<span class="string">&quot;os&quot;</span></span><br><span class="line">	<span class="string">&quot;path&quot;</span></span><br><span class="line">	<span class="string">&quot;strconv&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//需要修改的目录</span></span><br><span class="line">	way := <span class="string">&quot;C:\\Users\\zhou\\Desktop\\音频\\&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//用数字取名</span></span><br><span class="line">	num := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//获取文件夹内的信息</span></span><br><span class="line">	files, err := ioutil.ReadDir(way)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//打印错误信息</span></span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//循环修改文件名</span></span><br><span class="line">	<span class="keyword">for</span> _, file := <span class="keyword">range</span> files &#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//获取后缀</span></span><br><span class="line">		suf := path.Ext(file.Name())</span><br><span class="line"></span><br><span class="line">        <span class="comment">//拼接新名字</span></span><br><span class="line">		name := way + strconv.Itoa(num) + suf</span><br><span class="line"></span><br><span class="line">		fmt.Println(name)</span><br><span class="line"></span><br><span class="line">        <span class="comment">//修改文件名 </span></span><br><span class="line">		err = os.Rename(way+file.Name(), name)</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(err)</span><br><span class="line">		&#125;</span><br><span class="line">        </span><br><span class="line">		num += <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -682,7 +673,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/" rel="tag">Golang</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spleeter/" rel="tag">Spleeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/" rel="tag">Golang</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spleeter/" rel="tag">Spleeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tampermonkey/" rel="tag">Tampermonkey</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -692,7 +683,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Golang/" style="font-size: 20px;">Golang</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/Spleeter/" style="font-size: 10px;">Spleeter</a> <a href="/tags/Tampermonkey/" style="font-size: 15px;">Tampermonkey</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a>
+      <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Golang/" style="font-size: 20px;">Golang</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/Spleeter/" style="font-size: 10px;">Spleeter</a> <a href="/tags/Tampermonkey/" style="font-size: 15px;">Tampermonkey</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 10px;">其他</a>
     </div>
   </div>
 
@@ -701,7 +692,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -714,6 +705,14 @@
       <ul>
         
           <li>
+            <a href="/2023/09/23/%E7%8E%B0%E5%9C%A8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F%E6%B1%87%E6%80%BB%E4%B8%8E%E4%BD%BF%E7%94%A8/">现在使用的镜像汇总与使用</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/23/%E4%BD%BF%E7%94%A8TinyPNG-API%E8%A3%81%E5%89%AA%E5%9B%BE%E7%89%87%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">使用TinyPNG-API裁剪图片遇到的问题</a>
+          </li>
+        
+          <li>
             <a href="/2023/04/15/Golang%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96/">Golang离线安装依赖</a>
           </li>
         
@@ -723,14 +722,6 @@
         
           <li>
             <a href="/2023/03/26/Golang%E7%BC%96%E8%AF%91%E5%9B%BE%E6%A0%87%E4%B8%8E%E6%9D%83%E9%99%90%E8%AF%B7%E6%B1%82/">Golang编译图标与权限请求</a>
-          </li>
-        
-          <li>
-            <a href="/2023/03/26/%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%B8%8B%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">遇到的一下问题记录</a>
-          </li>
-        
-          <li>
-            <a href="/2023/03/26/Golang%E6%93%8D%E4%BD%9Cexcel/">Golang操作excel</a>
           </li>
         
       </ul>
