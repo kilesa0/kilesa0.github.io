@@ -4,19 +4,14 @@
   <meta charset="utf-8">
   
   
-  <title>油猴的进阶操作 | Kilesa</title>
+  <title>标签: 镜像 | Kilesa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="ajax-hook请求代理的使用12345678910111213141516171819202122&#x2F;&#x2F; @require      https:&#x2F;&#x2F;unpkg.com&#x2F;ajax-hook@2.0.3&#x2F;dist&#x2F;ajaxhook.min.js&#x2F;&#x2F; @run-at       document-startah.proxy(&amp;#123;    &#x2F;&#x2F;请求发起前进入    onRequest: (con">
-<meta property="og:type" content="article">
-<meta property="og:title" content="油猴的进阶操作">
-<meta property="og:url" content="https://gitee.com/kilesa/kilesa/2022/06/19/%E6%B2%B9%E7%8C%B4%E7%9A%84%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Kilesa">
+<meta property="og:url" content="https://gitee.com/kilesa/kilesa/tags/%E9%95%9C%E5%83%8F/index.html">
 <meta property="og:site_name" content="Kilesa">
-<meta property="og:description" content="ajax-hook请求代理的使用12345678910111213141516171819202122&#x2F;&#x2F; @require      https:&#x2F;&#x2F;unpkg.com&#x2F;ajax-hook@2.0.3&#x2F;dist&#x2F;ajaxhook.min.js&#x2F;&#x2F; @run-at       document-startah.proxy(&amp;#123;    &#x2F;&#x2F;请求发起前进入    onRequest: (con">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-19T09:09:45.000Z">
-<meta property="article:modified_time" content="2022-08-15T00:08:38.203Z">
 <meta property="article:author" content="鱼糕先生">
-<meta property="article:tag" content="Tampermonkey">
 <meta name="twitter:card" content="summary">
   
   
@@ -65,55 +60,39 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-油猴的进阶操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/06/19/%E6%B2%B9%E7%8C%B4%E7%9A%84%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C/" class="article-date">
-  <time class="dt-published" datetime="2022-06-19T09:09:45.000Z" itemprop="datePublished">2022-06-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      油猴的进阶操作
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2024" class="archive-year">2024</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2024/09/28/%E9%95%9C%E5%83%8F%E7%9B%B8%E5%85%B3/" class="archive-article-date">
+  <time class="dt-published" datetime="2024-09-28T12:21:51.000Z" itemprop="datePublished">9月 28</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2024/09/28/%E9%95%9C%E5%83%8F%E7%9B%B8%E5%85%B3/">镜像相关</a>
     </h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="ajax-hook请求代理的使用"><a href="#ajax-hook请求代理的使用" class="headerlink" title="ajax-hook请求代理的使用"></a>ajax-hook请求代理的使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// @require      https://unpkg.com/ajax-hook@2.0.3/dist/ajaxhook.min.js</span><br><span class="line">// @run-at       document-start</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ah.proxy(&#123;</span><br><span class="line">    //请求发起前进入</span><br><span class="line">    onRequest: (config, handler) =&gt; &#123;</span><br><span class="line">        console.log(config.url)</span><br><span class="line">        handler.next(config);</span><br><span class="line">    &#125;,</span><br><span class="line">    //请求发生错误时进入，比如超时；注意，不包括http状态码错误，如404仍然会认为请求成功</span><br><span class="line">    onError: (err, handler) =&gt; &#123;</span><br><span class="line">        console.log(err.type)</span><br><span class="line">        handler.next(err)</span><br><span class="line">    &#125;,</span><br><span class="line">    //请求成功后进入</span><br><span class="line">    onResponse: (response, handler) =&gt; &#123;</span><br><span class="line">        console.log(response.response)</span><br><span class="line">        console.log(handler)</span><br><span class="line">        handler.next(response)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-      
-    </div>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2022/08/15/Python%E6%89%93%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85exe/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          Python打包与解包exe
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/05/27/ios%E8%BF%9E%E7%BA%BFWindows%E8%B0%83%E8%AF%95safari/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">ios连线Windows调试safari</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
 
 </section>
