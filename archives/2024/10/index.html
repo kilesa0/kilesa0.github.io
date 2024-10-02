@@ -4,19 +4,14 @@
   <meta charset="utf-8">
   
   
-  <title>Golang操作excel | Kilesa</title>
+  <title>归档: 2024/10 | Kilesa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="导入依赖1go get github.com&#x2F;360EntSecGroup-Skylar&#x2F;excelize&#x2F;v2 单赋值写入1234567891011excel :&#x3D; excelize.NewFile()&#x2F;&#x2F; 创建一个工作表sheet :&#x3D; excel.NewSheet(&quot;学校&quot;)&#x2F;&#x2F; 设置新建工作表(学校)的内容excel.SetCellValue(&quot;学校&amp;quot">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Golang操作excel">
-<meta property="og:url" content="https://gitee.com/kilesa/kilesa/2023/03/26/Golang%E6%93%8D%E4%BD%9Cexcel/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Kilesa">
+<meta property="og:url" content="https://gitee.com/kilesa/kilesa/archives/2024/10/index.html">
 <meta property="og:site_name" content="Kilesa">
-<meta property="og:description" content="导入依赖1go get github.com&#x2F;360EntSecGroup-Skylar&#x2F;excelize&#x2F;v2 单赋值写入1234567891011excel :&#x3D; excelize.NewFile()&#x2F;&#x2F; 创建一个工作表sheet :&#x3D; excel.NewSheet(&quot;学校&quot;)&#x2F;&#x2F; 设置新建工作表(学校)的内容excel.SetCellValue(&quot;学校&amp;quot">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-25T16:01:12.000Z">
-<meta property="article:modified_time" content="2023-03-25T16:06:12.231Z">
 <meta property="article:author" content="鱼糕先生">
-<meta property="article:tag" content="Golang">
 <meta name="twitter:card" content="summary">
   
   
@@ -65,58 +60,39 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Golang操作excel" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/03/26/Golang%E6%93%8D%E4%BD%9Cexcel/" class="article-date">
-  <time class="dt-published" datetime="2023-03-25T16:01:12.000Z" itemprop="datePublished">2023-03-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      Golang操作excel
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2024" class="archive-year">2024</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2024/10/02/Golang%E7%88%AC%E8%99%AB%E5%BA%93Colly/" class="archive-article-date">
+  <time class="dt-published" datetime="2024-10-02T07:39:06.000Z" itemprop="datePublished">10月 2</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2024/10/02/Golang%E7%88%AC%E8%99%AB%E5%BA%93Colly/">Golang爬虫库Colly</a>
     </h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="导入依赖"><a href="#导入依赖" class="headerlink" title="导入依赖"></a>导入依赖</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> get github.com/<span class="number">360</span>EntSecGroup-Skylar/excelize/v2</span><br></pre></td></tr></table></figure>
-<h4 id="单赋值写入"><a href="#单赋值写入" class="headerlink" title="单赋值写入"></a>单赋值写入</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">excel := excelize.NewFile()</span><br><span class="line"><span class="comment">// 创建一个工作表</span></span><br><span class="line">sheet := excel.NewSheet(<span class="string">&quot;学校&quot;</span>)</span><br><span class="line"><span class="comment">// 设置新建工作表(学校)的内容</span></span><br><span class="line">excel.SetCellValue(<span class="string">&quot;学校&quot;</span>, <span class="string">&quot;A2&quot;</span>, <span class="string">&quot;北京大学&quot;</span>)</span><br><span class="line"><span class="comment">// 设置sheet1的内容(默认创建)</span></span><br><span class="line">excel.SetCellValue(<span class="string">&quot;Sheet1&quot;</span>,<span class="string">&quot;A1&quot;</span>,<span class="string">&quot;张三&quot;</span>)</span><br><span class="line"><span class="comment">// 设置默认工作表</span></span><br><span class="line">excel.SetActiveSheet(sheet)</span><br><span class="line"><span class="comment">// 保存表格</span></span><br><span class="line">excel.SaveAs(<span class="string">&quot;test.xlsx&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="按行赋值写入"><a href="#按行赋值写入" class="headerlink" title="按行赋值写入"></a>按行赋值写入</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">excel := excelize.NewFile()</span><br><span class="line"><span class="comment">// 写入标题</span></span><br><span class="line">titleSlice := []<span class="keyword">interface</span>&#123;&#125;&#123;<span class="string">&quot;序号&quot;</span>, <span class="string">&quot;姓名&quot;</span>, <span class="string">&quot;年龄&quot;</span>, <span class="string">&quot;性别&quot;</span>&#125;</span><br><span class="line">excel.SetSheetRow(<span class="string">&quot;Sheet1&quot;</span>, <span class="string">&quot;A1&quot;</span>, &amp;titleSlice)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 利用断言，转换类型</span></span><br><span class="line">tmp,_ := []<span class="keyword">interface</span>&#123;&#125;&#123;<span class="string">&quot;1&quot;</span>,<span class="string">&quot;张三&quot;</span>,<span class="string">&quot;19&quot;</span>,<span class="string">&quot;男&quot;</span>&#125;</span><br><span class="line">excel.SetSheetRow(<span class="string">&quot;Sheet1&quot;</span>, <span class="string">&quot;A2&quot;</span>, &amp;tmp)</span><br><span class="line"><span class="comment">// 保存表格</span></span><br><span class="line">excel.SaveAs(<span class="string">&quot;line.xlsx&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="读取表格"><a href="#读取表格" class="headerlink" title="读取表格"></a>读取表格</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开表格文件</span></span><br><span class="line">openFile, _ := excelize.OpenFile(<span class="string">&quot;line.xlsx&quot;</span>)</span><br><span class="line"><span class="comment">// 读取指定工作表所有数据</span></span><br><span class="line">rows, _ := openFile.GetRows(<span class="string">&quot;Sheet1&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> _, row := <span class="keyword">range</span> rows &#123;</span><br><span class="line">    fmt.Printf(row)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2023/03/26/Golang%E7%BC%96%E8%AF%91%E5%9B%BE%E6%A0%87%E4%B8%8E%E6%9D%83%E9%99%90%E8%AF%B7%E6%B1%82/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          Golang编译图标与权限请求
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2023/03/25/Golang%E6%97%A5%E6%9C%9F%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">Golang日期操作</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
 
 </section>
